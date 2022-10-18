@@ -23,17 +23,19 @@ Moduł profile użytkownika będzie odpowiadał za zarządzanie profilem przez s
 1.	Założyć profil (rejestracja)
 2.	Zalogować się do profilu (dostęp)
 3.	Uzupełnić profil (wprowadzenie danych)
+
 Moduł do zarządzania profilami będzie przeznaczony do zarządzania wewnętrznego, przeglądania zawartości profili oraz ich ewentualnego moderowania dzięki następującym funkcjonalnościom:
 1.	Przeglądanie profili użytkownika
 2.	Modyfikowanie profili użytkownika
 3.	Ręczne założenie konta użytkownika
 4.	Zarządzanie uprawnieniami użytkownika
+
 Moduł do wprowadzania i konfigurowania ankiet będzie współzależny z profilami użytkownika. Umożliwi on tworzenie głosowań oraz konkretyzację ichv pytań i odpowiedzi. Dodatkowo moduł powinien być poszerzony o dodatkowe statystyki bieżące, związane ze stanem głosowania i sposobem oddawania głosów przez publiczność. Ankiety będą mogły funkcjonować w dwóch trybach - ankiet anonimowych (wymagany jest token aby przystąpić do ankiety) oraz ankiety ograniczonych profilem użytkownika. Dodatkowo niektóre ankiety będą mogły wymagać odpowiedniego zaproszenia przed wypełnieniem. Ich funkcjonalnościami będą:
 1.	Wygenerowanie głosowania oraz określenie pytań i odpowiedzi
 2.	Wygenerowanie oraz pogląd statystyki związanej z głosowaniem
 3.	Definicja docelowej populacji (tryb anonimowy, konto, wymagane zaproszenie)
-Moduł do ankietyzacji:
-Moduł dla klienta końcowego, który będzie w stanie przystąpić do ankiety. W zależności od rodzaju ankiety sposób do dołączenia do niej będzie miał różną formę. Wyposażony zostanie w statystyki aktualizowane na bierząco, dotyczące przebiegającej ankiety. Moduł będzie połączony z profilem użytkownika aby miał wgląd w ankiety, w których bezpośrednio uczestniczył. Moduł będzie realizował następujące zadania:
+
+Moduł do ankietyzacji, przeznaczony dla klienta końcowego, który będzie w stanie przystąpić do ankiety. W zależności od rodzaju ankiety sposób do dołączenia do niej będzie miał różną formę. Wyposażony zostanie w statystyki aktualizowane na bierząco, dotyczące przebiegającej ankiety. Moduł będzie połączony z profilem użytkownika aby miał wgląd w ankiety, w których bezpośrednio uczestniczył. Moduł będzie realizował następujące zadania:
 1.	Przystępowanie do ankiet
 2.	Wypełnienie oraz oddawnie ankiet
 3.	Podgląd statystyk związanych z oddanymi głosami
