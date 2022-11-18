@@ -1,0 +1,10 @@
+com/aleklew/ballot/modules/general/GeneralConfiguration.class
+com/aleklew/ballot/modules/profiles/services/BaseProfileRepository.class
+com/aleklew/ballot/modules/profiles/interfaces/IAuthenticationService.class
+com/aleklew/ballot/DemoApplication.class
+com/aleklew/ballot/modules/profiles/ProfilesConfiguration.class
+com/aleklew/ballot/modules/profiles/services/BaseAuthenticationService.class
+com/aleklew/ballot/modules/general/models/test/TestModel.class
+com/aleklew/ballot/modules/profiles/interfaces/IProfileRepository.class
+com/aleklew/ballot/modules/general/controllers/TestController.class
+com/aleklew/ballot/modules/general/interfaces/ITestDataRepository.class

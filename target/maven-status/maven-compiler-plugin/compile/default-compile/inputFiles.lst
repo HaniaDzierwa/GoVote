@@ -1,0 +1,10 @@
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/general/interfaces/ITestDataRepository.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/general/models/test/TestModel.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/profiles/ProfilesConfiguration.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/general/controllers/TestController.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/general/GeneralConfiguration.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/profiles/services/BaseAuthenticationService.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/profiles/interfaces/IAuthenticationService.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/DemoApplication.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/profiles/interfaces/IProfileRepository.java
+/Users/alewandowska/IdeaProjects/demo/src/main/java/com/aleklew/ballot/modules/profiles/services/BaseProfileRepository.java
