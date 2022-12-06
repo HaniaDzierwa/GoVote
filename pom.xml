@@ -83,7 +83,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.aleklew.ballot.DemoApplication</mainClass>
+                    <mainClass>com.aleklew.ballot.BallotApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
