@@ -1,0 +1,59 @@
+<div class="login-form">
+  <form [formGroup]="loginForm" novalidate>
+    <mat-card class="login-card">
+      <h1 class="title">Logowanie</h1>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Nazwa użytkownika" formControlName="login" />
+              <mat-error
+                *ngIf="loginForm.controls['login'].hasError('required')"
+              >
+                Login jest <strong>wymagany</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Hasło"
+                type="password"
+                formControlName="password"
+              />
+              <mat-error
+                *ngIf="loginForm.controls['password'].hasError('required')"
+              >
+                Hasło jest <strong>wymagane</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <div class="buttons">
+        <button
+          mat-raised-button
+          (click)="onSubmit()"
+          class="log-button"
+          [disabled]="
+            loginForm.controls['login'].hasError('required') ||
+            loginForm.controls['password'].hasError('required')
+          "
+        >
+          ZALOGUJ SIĘ
+        </button>
+
+        <button
+          mat-raised-button
+          class="register-button"
+          (click)="openRegisterWindow()"
+        >
+          ZAREJESTRUJ SIĘ
+        </button>
+      </div>
+    </mat-card>
+  </form>
+</div>

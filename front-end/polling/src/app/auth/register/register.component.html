@@ -1,0 +1,134 @@
+<div class="register-form">
+  <form [formGroup]="registerForm">
+    <mat-card class="register-card">
+      <h1 class="title">Rejestracja</h1>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Imię" formControlName="name" ngModel pattern=" *[a-zA-Z]* *">
+              <mat-error
+                *ngIf="registerForm.controls['name'].hasError('pattern')"
+              >
+                Imię jest <strong>wymagane</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Nazwisko"
+                formControlName="surname"
+                ngModel pattern=" *[a-zA-Z]*-?[a-zA-Z]*? *"
+              />
+              <mat-error
+                *ngIf="registerForm.controls['surname'].hasError('pattern')"
+              >
+                Nazwisko jest <strong>wymagane</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Nazwa użytkownika"
+                formControlName="login"
+                ngModel pattern=" *[a-zA-Z0-9]*.{8,}"
+              />
+              <mat-error
+                *ngIf="registerForm.controls['login'].hasError('pattern')"
+              >
+                Nazwa użytkownika jest <strong>wymagana</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Email"
+                type="email"
+                formControlName="email"
+                ngModel pattern ="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+              />
+              <mat-error
+                *ngIf="registerForm.controls['email'].hasError('pattern')"
+              >
+                Email jest <strong>wymagany</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Hasło"
+                type="password"
+                formControlName="password"
+                ngModel pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
+              />
+               <!-- duza litera, cyfra, minimum 8  -->
+              <mat-error
+                *ngIf="registerForm.controls['password'].hasError('pattern')"
+              >
+                Hasło jest <strong>wymagane</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="PESEL"
+               formControlName="PESEL"
+               ngModel pattern="[0-9].{11}" 
+                />
+              <mat-error
+                *ngIf="registerForm.controls['PESEL'].hasError('pattern')"
+              >
+                PESEL jest <strong>wymagany</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <div>
+            <button
+              mat-button
+              class="log-in-button"
+              (click)="openLoginForm()"
+            >
+              ZALOGUJ SIĘ
+            </button>
+          </div>
+          <div>
+            <button
+              mat-button
+              class="register-button"
+              (click)="onSubmit()"
+              [disabled]="!isFormValid()"
+            >
+              ZAREJESTRUJ SIĘ
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</div>

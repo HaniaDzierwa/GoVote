@@ -1,0 +1,67 @@
+
+.application-title{
+    background-color: rgb(255, 255, 255);
+    font-size: 35px;
+}
+
+mat-sidenav-container{
+    height: calc(205vh - 115vh);
+}
+
+mat-sidenav{
+    width: 300px;
+    background-color: #ffffff;;
+}
+
+mat-sidenav-content{
+    background-color: #ffffff;
+}
+
+
+.side-nav-items-container{
+   display: flex;
+   flex-direction: column;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top: 10px;
+}
+
+.side-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:  rgb(211, 234, 243) ;
+    height: auto;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 10px 10px 15px;
+
+    display: flex;
+    justify-content:space-between;
+    caret-color: transparent; 
+}
+
+.text {
+    text-align: right;
+}
+
+.side-menu {
+    margin-top: 10px;
+    height: auto;
+    font-size: 20px;
+    border: none;
+    padding: 10px 10px 10px 15px;
+    display: flex;
+    justify-content:space-between;
+    caret-color: transparent;
+}
+
+.text-menu {
+    font-weight: 500;
+    font-size: larger;
+}
+.panel-close{
+    width: 0;
+}
+
+

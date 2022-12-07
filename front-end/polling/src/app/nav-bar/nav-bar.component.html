@@ -1,0 +1,16 @@
+<mat-toolbar class = "nav-bar">
+    <mat-icon (click)="showSideMenu()">menu</mat-icon>
+    <span class="title"> Ankiety</span>
+    <span class = "filler"></span>
+    <div class="nav-bar-button" routerLink="/user-profile">
+        <span class="text">Profil</span>
+        <mat-icon mat-button>account_circle</mat-icon>
+    </div>
+
+    <div class="nav-bar-button" (click)="onLogoutToggle()">
+        <span class="text">Wyloguj</span>
+        <mat-icon mat-button>logout</mat-icon>
+    </div>
+</mat-toolbar>
+
+
