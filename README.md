@@ -1,1 +1,2 @@
-# polsl-projekt-io
+# Ballot app
+
