@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TestHttpService } from './auth/modules/test/services/test.http.service';
+import { TestHttpService } from './modules/test/services/test.http.service';
 
 @Component({
   selector: 'app-root',

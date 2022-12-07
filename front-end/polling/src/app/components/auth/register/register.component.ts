@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AuthorizeService } from 'src/app/auth/modules/auth/services/AuthorizeService.service';
+import { AuthorizeService } from 'src/app/modules/auth/services/AuthorizeService.service';
 
 @Component({
   selector: 'app-register',

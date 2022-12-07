@@ -7,17 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { UserProfileComponent } from './auth/components/profiles/user-profile/user-profile.component';
-import { CreatingPollComponent } from './auth/components/ballot/creating-poll/creating-poll.component';
-import { PollComponent } from './auth/components/ballot/poll/poll.component';
-import { PollHistoryComponent } from './auth/components/ballot/poll-history/poll-history.component';
-import { NotFoundPageComponent } from './auth/components/general/not-found-page/not-found-page.component';
-import { SidenavModule } from './auth/components/general/sidenav/sidenav.module';
-import { NavBarComponent } from './auth/components/general/nav-bar/nav-bar.component';
-import { HomeComponent } from './auth/components/general/home/home.component';
-import { SideNavMaterialsModule } from './auth/components/general/sidenav/material';
-import { AuthModule } from './auth/modules/auth/auth.module';
+import { UserProfileComponent } from './components/profiles/user-profile/user-profile.component';
+import { CreatingPollComponent } from './components/ballot/creating-poll/creating-poll.component';
+import { PollComponent } from './components/ballot/poll/poll.component';
+import { PollHistoryComponent } from './components/ballot/poll-history/poll-history.component';
+import { NotFoundPageComponent } from './components/general/not-found-page/not-found-page.component';
+import { SidenavModule } from './components/general/sidenav/sidenav.module';
+import { NavBarComponent } from './components/general/nav-bar/nav-bar.component';
+import { HomeComponent } from './components/general/home/home.component';
+import { SideNavMaterialsModule } from './components/general/sidenav/material';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [

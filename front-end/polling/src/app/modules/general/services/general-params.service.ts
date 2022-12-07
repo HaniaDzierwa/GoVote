@@ -21,7 +21,7 @@ export class GeneralParamsService {
 
     public static apiAddress() {
         if (location.origin.includes('localhost')) {
-            return 'http://localhost:8080/api'; // 'https://ballot-polsl.herokuapp.com/api';
+            return 'https://ballot-polsl.herokuapp.com/api'; // 'http://localhost:8080/api'; // 
         }
         return location.origin; 
     }
