@@ -1,7 +1,6 @@
-package com.aleklew.ballot;
+package com.aleklew.ballot.modules.profiles.models;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -96,7 +95,7 @@ public class User {
 		return role;
 	}
 
-	void setRole(Role r)
+	public void setRole(Role r)
 	{
 		role = r;
 	}
