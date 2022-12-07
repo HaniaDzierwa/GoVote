@@ -5,18 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AuthModule } from './auth/auth.module';
-import { SidenavModule } from './sidenav/sidenav.module';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { CreatingPollComponent } from './creating-poll/creating-poll.component';
-import { PollComponent } from './poll/poll.component';
-import { PollHistoryComponent } from './poll-history/poll-history.component';
-import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SideNavMaterialsModule } from './sidenav/material';
-import { HomeComponent } from './home/home.component';
+import { UserProfileComponent } from './auth/components/profiles/user-profile/user-profile.component';
+import { CreatingPollComponent } from './auth/components/ballot/creating-poll/creating-poll.component';
+import { PollComponent } from './auth/components/ballot/poll/poll.component';
+import { PollHistoryComponent } from './auth/components/ballot/poll-history/poll-history.component';
+import { NotFoundPageComponent } from './auth/components/general/not-found-page/not-found-page.component';
+import { SidenavModule } from './auth/components/general/sidenav/sidenav.module';
+import { NavBarComponent } from './auth/components/general/nav-bar/nav-bar.component';
+import { HomeComponent } from './auth/components/general/home/home.component';
+import { SideNavMaterialsModule } from './auth/components/general/sidenav/material';
+import { AuthModule } from './auth/modules/auth/auth.module';
 
 @NgModule({
   declarations: [

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AuthorizeService } from '../AuthorizeService.service';
+import { AuthorizeService } from 'src/app/auth/modules/auth/services/AuthorizeService.service';
 
 @Component({
   selector: 'app-login',

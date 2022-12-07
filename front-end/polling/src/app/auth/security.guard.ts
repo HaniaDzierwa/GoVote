@@ -6,8 +6,8 @@ import {
   Router,
   UrlTree,
 } from '@angular/router';
+import { AuthorizeService } from './modules/auth/services/AuthorizeService.service';
 
-import { AuthorizeService } from './AuthorizeService.service';
 
 @Injectable({
   providedIn: 'root',

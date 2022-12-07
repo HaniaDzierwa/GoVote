@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { SideMenuServiceService } from '../side-menu-service.service';
+import { SideMenuServiceService } from 'src/app/auth/modules/general/services/side-menu-service.service';
 
 
 @Component({

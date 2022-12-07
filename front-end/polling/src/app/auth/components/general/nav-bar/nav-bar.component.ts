@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizeService } from '../auth/AuthorizeService.service';
-import { SideMenuServiceService } from '../side-menu-service.service';
+import { AuthorizeService } from 'src/app/auth/modules/auth/services/AuthorizeService.service';
+import { SideMenuServiceService } from 'src/app/auth/modules/general/services/side-menu-service.service';
 
 @Component({
   selector: 'app-nav-bar',

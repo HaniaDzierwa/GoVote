@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { PollComponent } from './poll/poll.component';
-import { CreatingPollComponent } from './creating-poll/creating-poll.component';
-import { PollHistoryComponent } from './poll-history/poll-history.component';
-import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/components/auth/login/login.component';
+import { RegisterComponent } from './auth/components/auth/register/register.component';
+import { CreatingPollComponent } from './auth/components/ballot/creating-poll/creating-poll.component';
+import { PollHistoryComponent } from './auth/components/ballot/poll-history/poll-history.component';
+import { PollComponent } from './auth/components/ballot/poll/poll.component';
+import { NotFoundPageComponent } from './auth/components/general/not-found-page/not-found-page.component';
+import { UserProfileComponent } from './auth/components/profiles/user-profile/user-profile.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
