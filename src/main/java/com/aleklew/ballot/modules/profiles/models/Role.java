@@ -1,4 +1,4 @@
-package com.aleklew.ballot;
+package com.aleklew.ballot.modules.profiles.models;
 
 import java.time.LocalDate;
 

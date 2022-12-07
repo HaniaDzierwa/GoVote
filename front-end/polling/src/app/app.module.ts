@@ -17,6 +17,7 @@ import { NavBarComponent } from './auth/components/general/nav-bar/nav-bar.compo
 import { HomeComponent } from './auth/components/general/home/home.component';
 import { SideNavMaterialsModule } from './auth/components/general/sidenav/material';
 import { AuthModule } from './auth/modules/auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthModule } from './auth/modules/auth/auth.module';
     MatProgressBarModule,
     MatToolbarModule,
     SideNavMaterialsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
