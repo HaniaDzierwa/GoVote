@@ -14,10 +14,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.aleklew.ballot.modules.profiles.models.User;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "Ballots")
+@JsonIdentityInfo(property = "ballotID", generator = ObjectIdGenerators.PropertyGenerator.class)
 public class Ballot {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +30,7 @@ public class Ballot {
 
 	@ManyToOne
 	@JoinColumn(name = "OwnerID", referencedColumnName = "UserID")
+	@JsonIdentityReference(alwaysAsId = true)
 	private User owner;
 
 	@Column(name = "BallotName")

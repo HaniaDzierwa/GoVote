@@ -17,10 +17,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.aleklew.ballot.modules.general.models.Ballot;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name="Users", schema="dbo")
+@JsonIdentityInfo(property = "userID", generator = ObjectIdGenerators.PropertyGenerator.class)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

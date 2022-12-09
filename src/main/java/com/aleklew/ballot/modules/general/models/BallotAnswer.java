@@ -9,8 +9,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "BallotAnswers")
+@JsonIdentityInfo(property = "answerID", generator = ObjectIdGenerators.PropertyGenerator.class)
 public class BallotAnswer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +24,7 @@ public class BallotAnswer {
 
 	@ManyToOne
 	@JoinColumn(name = "BallotQuestionID")
+	@JsonIdentityReference(alwaysAsId = true)
     private BallotQuestion question;
 
 	@Column(name = "ResponderToken")

@@ -14,10 +14,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "BallotQuestions")
+@JsonIdentityInfo(property = "questionID", generator = ObjectIdGenerators.PropertyGenerator.class)
 public class BallotQuestion {
 
     @Id
@@ -27,6 +31,7 @@ public class BallotQuestion {
 
 	@ManyToOne
 	@JoinColumn(name = "BallotID")
+	@JsonIdentityReference(alwaysAsId = true)
     private Ballot ballot;
 
 	@JsonIgnore
