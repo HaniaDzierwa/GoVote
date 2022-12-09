@@ -1,0 +1,56 @@
+package com.aleklew.ballot.modules.general.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "BallotAnswers")
+public class BallotAnswer {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "BallotAnswerID")
+	private int answerID;
+
+	@ManyToOne
+	@JoinColumn(name = "BallotQuestionID")
+    private BallotQuestion question;
+
+	@Column(name = "ResponderToken")
+	private int responderToken;
+
+	@Column(name = "AnswerText")
+	private String answerText;
+
+	@Column(name = "AnswerNumber")
+	private int answerNumber;
+	
+	public int getID() {
+		return answerID;
+	}
+
+	public BallotQuestion getQuestion() {
+		return question;
+	}
+
+	public Ballot getBallot() {
+		return question.getBallot();
+	}
+
+	public int getResponderToken() {
+		return responderToken;
+	}
+
+	public String getAnswerText() {
+		return answerText;
+	}
+
+	public int getAnswerNumber() {
+		return answerNumber;
+	}
+}
