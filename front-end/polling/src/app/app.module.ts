@@ -10,12 +10,12 @@ import { SidenavModule } from './features/side-nav/side-nav.module';
 import { FormsModule } from '@angular/forms';
 import {MaterialDesignModule} from "./mat-design/material-design.module";
 import {CommonModule} from "@angular/common";
-import {PollJoinModule} from "./features/poll-join/poll-join.module";
-import {PollHistoryModule} from "./features/poll-history/poll-history.module";
+import {PollJoinModule} from "./features/poll/poll-join/poll-join.module";
+import {PollHistoryModule} from "./features/poll/poll-history/poll-history.module";
 import {RouterModule} from "@angular/router";
 import {UserProfileModule} from "./features/user-profile/user-profile.module";
-import {PollViewModule} from "./features/poll-view/poll-view.module";
-import {CreatePollModule} from "./features/create-poll/create-poll-module";
+import {PollViewModule} from "./features/poll/poll-view/poll-view.module";
+import {CreatePollModule} from "./features/poll/create-poll/create-poll-module";
 import {NotFoundPageModule} from "./features/not-found-page/not-found-page.module";
 import { DialogComponent } from './componenets/dialog/dialog.component';
 

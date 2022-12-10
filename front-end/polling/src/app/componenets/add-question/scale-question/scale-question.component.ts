@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {numSequence} from "../add-question.utils";
+import {numSequence} from "../../../utils/add-question.utils";
 
 @Component({
   selector: 'app-scale-question',
