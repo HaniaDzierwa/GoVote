@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PollType } from '../../model/poll-type';
+import { PollType } from '../../../model/poll-type';
 
 @Component({
   selector: 'app-create-poll-join',

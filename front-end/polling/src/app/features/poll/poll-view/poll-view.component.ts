@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddQuestionComponent } from '../../componenets/add-question/add-question.component';
-import { PollType } from '../../model/poll-type';
+import { AddQuestionComponent } from '../../../componenets/add-question/add-question.component';
+import { PollType } from '../../../model/poll-type';
 
 @Component({
   selector: 'app-poll-join-view',
