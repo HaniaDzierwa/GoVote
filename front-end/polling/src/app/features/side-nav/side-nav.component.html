@@ -1,0 +1,28 @@
+<mat-sidenav-container>
+  <mat-sidenav  mode="side" #sideNav>
+
+    <div class="side-nav-items-container">
+      <div class="side-menu">
+        <span class="text-menu">Menu</span>
+        <mat-icon  (click)="sideNav.close()">close</mat-icon>
+      </div>
+
+      <button class="side-button" routerLink="/poll">
+        <span class="text">Dołącz do ankiety</span>
+        <mat-icon >touch_app</mat-icon>
+      </button>
+
+      <button class="side-button" routerLink="/create-poll">
+        <span class="text">Utwórz ankietę</span>
+        <mat-icon >create</mat-icon>
+      </button>
+
+      <button class="side-button" routerLink="/poll-history">
+        <span class="text">Przejrzyj ankiety</span>
+        <mat-icon >pageview</mat-icon>
+      </button>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>  <ng-content></ng-content> </mat-sidenav-content>
+</mat-sidenav-container>

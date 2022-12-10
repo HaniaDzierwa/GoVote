@@ -1,0 +1,49 @@
+<mat-card class="questions">
+  <mat-card-content>
+    <mat-card-title> Treść pytania:
+      <textarea matInput
+                #test
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="5"
+                class="poll-input"
+                (change)="setQuestion(test.value)"
+      ></textarea>
+    </mat-card-title>
+
+    <div [ngSwitch]="pollType">
+
+      <app-single-choice-question
+        *ngSwitchCase="'ABCSingle'"
+        [numberOfAnswers]="numberOfAnswers"
+      >
+      </app-single-choice-question>
+
+      <app-multiple-choice-question
+        *ngSwitchCase="'ABCMultiple'"
+        [numberOfAnswers]="numberOfAnswers"
+      ></app-multiple-choice-question>
+
+      <app-scale-question
+        *ngSwitchCase="'SCALE'"
+        [numberOfAnswers]="numberOfAnswers"
+      ></app-scale-question>
+
+      <app-open-question
+        *ngSwitchCase="'OPEN'"
+      ></app-open-question>
+
+      <div *ngIf="pollType !== 'OPEN'" class="btn-modify-amount-answers">
+        <button class="btn-add-question" (click)="addOption()">Add option</button>
+        <button class="btn-add-question" (click)="deleteOption()">Delete option</button>
+      </div>
+    </div>
+    <div class="btn-right-display">
+      <mat-checkbox (change)="createNextToggle()">Dodaj ponownie</mat-checkbox>
+      <button (click)="addQuestion()" class="btn-add-question">DODAJ</button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+

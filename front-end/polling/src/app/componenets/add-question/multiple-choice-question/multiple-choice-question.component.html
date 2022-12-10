@@ -1,0 +1,8 @@
+<div class="poll-type direction-column">
+  <mat-card-title> Odpowiedź: </mat-card-title>
+  <div class="answers-container" *ngFor="let n of numSequence(numberOfAnswers);  let i = index">
+    <mat-checkbox value="{{i}}" >
+      <input #answerInput MatInput class="poll-input" (change)="inputChange(answerInput.value,i)">
+    </mat-checkbox>
+  </div>
+</div>
