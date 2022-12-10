@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TestHttpService } from './modules/test/services/test.http.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +10,4 @@ export class AppComponent {
 
   isSidePanelOpened: boolean = false;
 
-  constructor(private testHttpService: TestHttpService) {
-  }
-
-  ngOnInit() {
-    this.testHttpService.test().then(resp => {
-      console.log("response is ... ", resp);
-    }, err =>{
-      console.log(err);
-    });
-  }
 }

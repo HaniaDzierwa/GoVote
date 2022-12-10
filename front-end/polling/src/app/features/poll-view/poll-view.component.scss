@@ -1,0 +1,82 @@
+mat-card-header {
+    display: flex;
+    justify-content: center;
+}
+.header {
+    font-size: 35px;
+    margin-top: 40px;
+    padding-bottom: 60px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.poll-input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    border: 2px solid rgb(211, 234, 243);
+    font-size: 16px;
+    margin-bottom: 25px;
+    height: auto;
+    width: 500px;
+    caret-color: transparent;
+
+}
+.poll-input:focus{
+    outline: none !important;
+    border:2px solid #cd83e8;
+}
+.textarea[contenteditable]:empty::before {
+}
+
+.description {
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.poll-type {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+	background-color: #b52ce6 !important;   /*inner circle color change*/
+  }
+
+  ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+	border-color: #cd83e8!important; /*outer ring color change*/
+}
+
+.poll-type:first-of-type {
+    padding-top: 20px;
+}
+
+.btn-add-question {
+    font-size:large;
+    width: 200px;
+    outline: 2px solid #d4ade2;
+    outline-offset: -2px;
+    background-color: white;
+    align-content: stretch;
+}
+
+.btn-add-question:disabled {
+    background-color: white;
+}
+
+.btn-right-display {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none !important;
+}
+
+mat-card-title{
+  caret-color: transparent;
+}

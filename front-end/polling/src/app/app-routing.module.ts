@@ -1,31 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
-import { CreatingPollComponent } from './components/ballot/creating-poll/creating-poll.component';
-import { PollHistoryComponent } from './components/ballot/poll-history/poll-history.component';
-import { PollComponent } from './components/ballot/poll/poll.component';
-import { NotFoundPageComponent } from './components/general/not-found-page/not-found-page.component';
-import { UserProfileComponent } from './components/profiles/user-profile/user-profile.component';
-
+import { LoginComponent } from './features/auth/login/login.component';
+import { UserProfileComponent } from './features/user-profile/user-profile.component';
+import { PollJoinComponent } from './features/poll-join/poll-join.component';
+import { CreatePollComponent } from './features/create-poll/create-poll.component';
+import { PollHistoryComponent } from './features/poll-history/poll-history.component';
+import { NotFoundPageComponent } from './features/not-found-page/not-found-page.component';
+import { RegisterComponent } from './features/auth/register/register.component';
+import { PollViewComponent } from './features/poll-view/poll-view.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  {
-    path: 'user-profile',
-    component: UserProfileComponent,
-  },
-  { path: 'poll', component: PollComponent },
-  {
-    path: 'create-poll',
-    component: CreatingPollComponent,
-  },
+  { path: 'user-profile', component: UserProfileComponent },
+  { path: 'poll', component: PollJoinComponent },//poll join?
+  { path: 'create-poll', component: CreatePollComponent },
   { path: 'register', component: RegisterComponent },
-  {
-    path: 'poll-history',
-    component: PollHistoryComponent,
-  },
+  { path: 'poll-history', component: PollHistoryComponent },
+  { path: 'poll-view', component: PollViewComponent},
   { path: '**', component: NotFoundPageComponent },
 ];
 

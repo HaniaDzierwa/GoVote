@@ -1,0 +1,32 @@
+ <mat-card class="main">
+    <mat-card-header>
+      <mat-card-title class="header">Edytuj ankietę </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <mat-card-title> Nazwa:
+        <span class='poll-input description-input'> nowa </span>
+      </mat-card-title>
+
+      <mat-card-title > Opis ankiety:
+        <span class='poll-input description-input'>  ankieta </span>
+      </mat-card-title>
+
+      <mat-radio-group class="poll-type">
+        <mat-card-title> Wybierz typ pytania: </mat-card-title>
+        <mat-radio-button value="ABCSingle"  (change)="onChange($event.value)">A/B/C jednokrotnego wyboru</mat-radio-button>
+        <mat-radio-button value="SCALE" (change)="onChange($event.value)">SCALE</mat-radio-button>
+        <mat-radio-button value="OPEN" (change)="onChange($event.value)">OPEN</mat-radio-button>
+        <mat-radio-button value="ABCMultiple" (change)="onChange($event.value)">A/B/C wielokrotnego wyboru</mat-radio-button>
+      </mat-radio-group>
+
+      <div class="btn-right-display" >
+        <button (click)="openPopUpAdd()" class="btn-add-question">DODAJ PYTANIE</button>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+
+
+
