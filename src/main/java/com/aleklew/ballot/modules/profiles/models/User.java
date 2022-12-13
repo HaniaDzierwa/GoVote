@@ -64,6 +64,10 @@ public class User {
 	// 	this.lastName = lastName;
 	// }
 
+	public int getID() {
+		return userID;
+	}
+		
 	public String getFirstName()
 	{
 		return firstName;
