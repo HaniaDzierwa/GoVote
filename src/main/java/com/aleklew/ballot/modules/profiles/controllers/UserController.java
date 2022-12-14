@@ -37,4 +37,10 @@ public class UserController {
 		return ResponseEntity.ok(user);
 	}
 
+	@PostMapping("/getUserByID")
+	public ResponseEntity<User> getUserByID(@RequestBody User user)
+	{
+		return  ResponseEntity.ok(userRepository.getReferenceById(user.getID()));
+	}
+
 }

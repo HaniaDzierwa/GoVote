@@ -1,10 +1,8 @@
 package com.aleklew.ballot.modules.general.controllers;
 
-import com.aleklew.ballot.modules.general.interfaces.ITestDataRepository;
+import com.aleklew.ballot.modules.general.db.interfaces.ITestDataRepository;
 import com.aleklew.ballot.modules.general.models.test.TestModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
