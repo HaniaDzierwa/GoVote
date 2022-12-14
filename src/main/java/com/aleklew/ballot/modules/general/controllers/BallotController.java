@@ -68,12 +68,15 @@ public class BallotController {
 //		return ResponseEntity.ok(ballotAnswer);
 //	}
 //
-//	@PostMapping("/getBallotByID")
-//	public ResponseEntity<Ballot> getBallotByID(@RequestBody Ballot ballot) {
-//		// TODO: olalew permissions/auth
-//		ballot = ballotRepository.getReferenceById(ballot.getBallotID());
-//		return ResponseEntity.ok(ballot);
-//	}
+	@GetMapping("/getBallotByID")
+	public ResponseEntity<Ballot> getBallotByID(@RequestParam int ballotId) {
+		// TODO: olalew permissions/auth
+		Ballot ballot = ballotCreatorService.getBallotByID(ballotId);
+		if (ballot != null) {
+			return ResponseEntity.ok(ballot);
+		}
+		return ResponseEntity.notFound().build();
+	}
 
 
 }

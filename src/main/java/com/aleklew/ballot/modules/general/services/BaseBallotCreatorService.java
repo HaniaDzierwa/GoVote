@@ -50,6 +50,15 @@ public class BaseBallotCreatorService implements IBallotCreatorService {
     }
 
     @Override
+    public Ballot getBallotByID(int ballotId) {
+        Optional<Ballot> ballot = ballotRepository.findById(ballotId);
+        if (ballot.isPresent()) {
+            return ballot.get();
+        }
+        return null;
+    }
+
+    @Override
     public boolean deleteBallot(int ballotId) {
         Optional<Ballot> ballotToRemove = ballotRepository.findById(ballotId);
         if (ballotToRemove.isPresent()) {
