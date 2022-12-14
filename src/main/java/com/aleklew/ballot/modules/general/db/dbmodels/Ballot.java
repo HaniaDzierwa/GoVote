@@ -33,7 +33,6 @@ public class Ballot {
 
 	@ManyToOne
 	@JoinColumn(name = "OwnerID", referencedColumnName = "UserID", insertable = false, updatable = false)
-	@JsonIdentityReference(alwaysAsId = true)
 	private User owner;
 
 	@Column(name = "BallotName")
@@ -62,6 +61,10 @@ public class Ballot {
 
 	public User getOwner() {
 		return owner;
+	}
+
+	public int getOwnerID() {
+		return ownerID;
 	}
 
 	public String getBallotName() {

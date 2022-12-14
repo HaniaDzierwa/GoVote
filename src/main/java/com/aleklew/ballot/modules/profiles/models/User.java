@@ -31,7 +31,7 @@ public class User {
 	private int userID;
 
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "owner", fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "owner", fetch = FetchType.LAZY)
 	private Set<Ballot> ballots;
 
 	@Column(name="Username")
