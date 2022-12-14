@@ -1,7 +1,7 @@
 package com.aleklew.ballot.modules.general.controllers;
 
-import java.util.List;
-
+import com.aleklew.ballot.modules.general.models.test.CreateBallotRequest;
+import com.aleklew.ballot.modules.profiles.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aleklew.ballot.modules.general.interfaces.BallotAnswerRepository;
 import com.aleklew.ballot.modules.general.interfaces.BallotQuestionRepository;
 import com.aleklew.ballot.modules.general.interfaces.BallotRepository;
-import com.aleklew.ballot.modules.general.models.Ballot;
-import com.aleklew.ballot.modules.general.models.BallotAnswer;
-import com.aleklew.ballot.modules.general.models.BallotQuestion;
+import com.aleklew.ballot.modules.general.dbmodels.Ballot;
+import com.aleklew.ballot.modules.general.dbmodels.BallotAnswer;
+import com.aleklew.ballot.modules.general.dbmodels.BallotQuestion;
 import com.aleklew.ballot.modules.profiles.interfaces.UserRepository;
-import com.aleklew.ballot.modules.profiles.models.Role;
-import com.aleklew.ballot.modules.profiles.models.User;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/ballot")
@@ -36,10 +35,18 @@ public class BallotController {
 	private UserRepository userRepository;
 
 	@PostMapping("/create")
-	public ResponseEntity<Ballot> create(@RequestBody Ballot ballot) {
+	public ResponseEntity<Ballot> create(@RequestBody CreateBallotRequest request) {
 		// TODO: olalew permissions/auth
-		ballot = ballotRepository.save(ballot);
-		return ResponseEntity.ok(ballot);
+
+		Ballot ballot = new Ballot(request.getOwnerID(), request.getBallotName(), request.getBallotDescription());
+
+		Optional<User> user = userRepository.findById(request.getOwnerID());
+		if (user.isPresent()) {
+			ballot = ballotRepository.save(ballot);
+			return ResponseEntity.ok(ballot);
+		}
+
+		return ResponseEntity.notFound().build();
 	}
 
 	@PostMapping("/delete")

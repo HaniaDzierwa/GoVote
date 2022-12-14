@@ -1,4 +1,4 @@
-package com.aleklew.ballot.modules.general.models;
+package com.aleklew.ballot.modules.general.dbmodels;
 
 import java.util.Set;
 
@@ -28,8 +28,11 @@ public class Ballot {
 	@Column(name = "BallotID")
 	private int ballotID;
 
+	@Column(name = "OwnerID")
+	private int ownerID;
+
 	@ManyToOne
-	@JoinColumn(name = "OwnerID", referencedColumnName = "UserID")
+	@JoinColumn(name = "OwnerID", referencedColumnName = "UserID", insertable = false, updatable = false)
 	@JsonIdentityReference(alwaysAsId = true)
 	private User owner;
 
@@ -42,6 +45,16 @@ public class Ballot {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "ballot")
 	private Set<BallotQuestion> questions;
+
+	public Ballot(int ownerID, String ballotName, String ballotDescription) {
+		this.ownerID = ownerID;
+		this.ballotName = ballotName;
+		this.ballotDescription = ballotDescription;
+	}
+
+	public Ballot() {
+
+	}
 
 	public int getBallotID() {
 		return ballotID;
