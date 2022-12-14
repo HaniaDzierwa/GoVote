@@ -1,4 +1,4 @@
-package com.aleklew.ballot.modules.general.dbmodels;
+package com.aleklew.ballot.modules.general.db.dbmodels;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

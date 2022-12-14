@@ -1,20 +1,18 @@
 package com.aleklew.ballot.modules.general.controllers;
 
+import com.aleklew.ballot.modules.general.interfaces.IBallotCreatorService;
 import com.aleklew.ballot.modules.general.models.test.CreateBallotRequest;
 import com.aleklew.ballot.modules.profiles.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.aleklew.ballot.modules.general.interfaces.BallotAnswerRepository;
-import com.aleklew.ballot.modules.general.interfaces.BallotQuestionRepository;
-import com.aleklew.ballot.modules.general.interfaces.BallotRepository;
-import com.aleklew.ballot.modules.general.dbmodels.Ballot;
-import com.aleklew.ballot.modules.general.dbmodels.BallotAnswer;
-import com.aleklew.ballot.modules.general.dbmodels.BallotQuestion;
+import com.aleklew.ballot.modules.general.db.interfaces.BallotAnswerRepository;
+import com.aleklew.ballot.modules.general.db.interfaces.BallotQuestionRepository;
+import com.aleklew.ballot.modules.general.db.interfaces.BallotRepository;
+import com.aleklew.ballot.modules.general.db.dbmodels.Ballot;
+import com.aleklew.ballot.modules.general.db.dbmodels.BallotAnswer;
+import com.aleklew.ballot.modules.general.db.dbmodels.BallotQuestion;
 import com.aleklew.ballot.modules.profiles.interfaces.UserRepository;
 
 import java.util.Optional;
@@ -23,74 +21,59 @@ import java.util.Optional;
 @RequestMapping("/api/v1/ballot")
 public class BallotController {
 	@Autowired
-	private BallotRepository ballotRepository;
-
-	@Autowired
-	private BallotQuestionRepository ballotQuestionRepository;
-
-	@Autowired
-	private BallotAnswerRepository ballotAnswerRepository;
-
-	@Autowired
-	private UserRepository userRepository;
+	private IBallotCreatorService ballotCreatorService;
 
 	@PostMapping("/create")
 	public ResponseEntity<Ballot> create(@RequestBody CreateBallotRequest request) {
 		// TODO: olalew permissions/auth
 
-		Ballot ballot = new Ballot(request.getOwnerID(), request.getBallotName(), request.getBallotDescription());
-
-		Optional<User> user = userRepository.findById(request.getOwnerID());
-		if (user.isPresent()) {
-			ballot = ballotRepository.save(ballot);
-			return ResponseEntity.ok(ballot);
+		Ballot createdBallot = ballotCreatorService.createBallot(request);
+		if (createdBallot != null) {
+			return ResponseEntity.ok(createdBallot);
 		}
-
 		return ResponseEntity.notFound().build();
 	}
 
-	@PostMapping("/delete")
-	public ResponseEntity<?> delete(@RequestBody Ballot ballot) {
+	@DeleteMapping("/delete")
+	public ResponseEntity<?> delete(@RequestParam int ballotId) {
 		// TODO: olalew permissions/auth
-		try {
-			ballotRepository.deleteById(ballot.getBallotID());
+
+		if (ballotCreatorService.deleteBallot(ballotId)) {
 			return ResponseEntity.ok().build();
-		} catch (Exception ex) {
-			return ResponseEntity.badRequest().build();
 		}
+		return ResponseEntity.notFound().build();
 	}
 
-	@PostMapping("/addQuestion")
-	public ResponseEntity<BallotQuestion> addQuestion(@RequestBody BallotQuestion ballotQuestion) {
-		// TODO: olalew permissions/auth
-		ballotQuestion = ballotQuestionRepository.save(ballotQuestion);
-		return ResponseEntity.ok(ballotQuestion);
-	}
+//	@PostMapping("/addQuestion")
+//	public ResponseEntity<BallotQuestion> addQuestion(@RequestBody BallotQuestion ballotQuestion) {
+//		// TODO: olalew permissions/auth
+//		ballotQuestion = ballotQuestionRepository.save(ballotQuestion);
+//		return ResponseEntity.ok(ballotQuestion);
+//	}
 
-	@PostMapping("/deleteQuestion")
-	public ResponseEntity<?> deleteQuestion(@RequestBody BallotQuestion ballotQuestion) {
+	@DeleteMapping("/deleteQuestion")
+	public ResponseEntity<?> deleteQuestion(@RequestParam int questionId) {
 		// TODO: olalew permissions/auth
-		try {
-			ballotQuestionRepository.deleteById(ballotQuestion.getQuestionID());
+
+		if (ballotCreatorService.deleteQuestion(questionId)) {
 			return ResponseEntity.ok().build();
-		} catch (Exception ex) {
-			return ResponseEntity.badRequest().build();
 		}
+		return ResponseEntity.notFound().build();
 	}
 
-	@PostMapping("/addAnswer")
-	public ResponseEntity<BallotAnswer> addAnswer(@RequestBody BallotAnswer ballotAnswer) {
-		// TODO: olalew permissions/auth
-		ballotAnswer= ballotAnswerRepository.save(ballotAnswer);
-		return ResponseEntity.ok(ballotAnswer);
-	}
-
-	@PostMapping("/getBallotByID")
-	public ResponseEntity<Ballot> getBallotByID(@RequestBody Ballot ballot) {
-		// TODO: olalew permissions/auth
-		ballot = ballotRepository.getReferenceById(ballot.getBallotID());
-		return ResponseEntity.ok(ballot);
-	}
+//	@PostMapping("/addAnswer")
+//	public ResponseEntity<BallotAnswer> addAnswer(@RequestBody BallotAnswer ballotAnswer) {
+//		// TODO: olalew permissions/auth
+//		ballotAnswer= ballotAnswerRepository.save(ballotAnswer);
+//		return ResponseEntity.ok(ballotAnswer);
+//	}
+//
+//	@PostMapping("/getBallotByID")
+//	public ResponseEntity<Ballot> getBallotByID(@RequestBody Ballot ballot) {
+//		// TODO: olalew permissions/auth
+//		ballot = ballotRepository.getReferenceById(ballot.getBallotID());
+//		return ResponseEntity.ok(ballot);
+//	}
 
 
 }
