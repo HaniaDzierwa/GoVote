@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -18,6 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
+@NoArgsConstructor
 @JsonIdentityInfo(property = "ballotId", generator = ObjectIdGenerators.PropertyGenerator.class)
 public class BallotEntity {
 	@Id
