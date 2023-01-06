@@ -1,13 +1,9 @@
-package com.aleklew.ballot.modules.general.controllers;
-
-import java.util.List;
+package com.aleklew.ballot.modules.general.rest.controllers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.aleklew.ballot.modules.general.models.test.SimpleTestModel;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
-import org.hibernate.Session;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
