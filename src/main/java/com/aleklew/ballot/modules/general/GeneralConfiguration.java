@@ -1,7 +1,7 @@
 package com.aleklew.ballot.modules.general;
 
-import com.aleklew.ballot.modules.general.interfaces.IBallotCreatorService;
-import com.aleklew.ballot.modules.general.services.BaseBallotCreatorService;
+import com.aleklew.ballot.modules.general.interfaces.BallotService;
+import com.aleklew.ballot.modules.general.services.BaseBallotService;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,8 +14,8 @@ public class GeneralConfiguration {
 
     @Bean(name = "ballotCreatorService")
     @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
-    public IBallotCreatorService getAuthenticationService() {
-        return new BaseBallotCreatorService();
+    public BallotService getAuthenticationService() {
+        return new BaseBallotService();
     }
 
 }

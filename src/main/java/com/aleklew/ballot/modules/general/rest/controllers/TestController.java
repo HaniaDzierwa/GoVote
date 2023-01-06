@@ -1,4 +1,4 @@
-package com.aleklew.ballot.modules.general.controllers;
+package com.aleklew.ballot.modules.general.rest.controllers;
 
 import com.aleklew.ballot.modules.general.db.interfaces.ITestDataRepository;
 import com.aleklew.ballot.modules.general.models.test.TestModel;

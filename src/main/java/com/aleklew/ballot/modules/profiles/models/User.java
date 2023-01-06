@@ -2,6 +2,7 @@ package com.aleklew.ballot.modules.profiles.models;
 
 import java.security.MessageDigest;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -16,14 +17,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.aleklew.ballot.modules.general.db.dbmodels.Ballot;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.aleklew.ballot.modules.general.db.dbmodels.BallotEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@Table(name="Users", schema="dbo")
-@JsonIdentityInfo(property = "userID", generator = ObjectIdGenerators.PropertyGenerator.class)
+@Table(name="Users")
+//@JsonIdentityInfo(property = "userID", generator = ObjectIdGenerators.PropertyGenerator.class)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +30,8 @@ public class User {
 	private int userID;
 
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "owner", fetch = FetchType.LAZY)
-	private Set<Ballot> ballots;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "ownerId", fetch = FetchType.LAZY)
+	private Set<BallotEntity> ballotEntities;
 
 	@Column(name="Username")
 	private String userName;
@@ -105,7 +104,7 @@ public class User {
 
 	public boolean checkPassword(String password)
 	{
-		return pwdHash == passwordToHash(password);
+		return Objects.equals(pwdHash, passwordToHash(password));
 	}
 
 	Role getRole()
@@ -116,9 +115,5 @@ public class User {
 	public void setRole(Role r)
 	{
 		role = r;
-	}
-
-	public Set<Ballot> getOwnedBallots() {
-		return ballots;
 	}
 }
