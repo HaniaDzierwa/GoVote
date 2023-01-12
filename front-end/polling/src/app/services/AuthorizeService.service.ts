@@ -1,6 +1,6 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+import {Injectable, OnDestroy} from '@angular/core';
+import {Router} from '@angular/router';
+import {environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +9,11 @@ export class AuthorizeService implements OnDestroy {
   username: String = 'user';
   password: String = '123';
 
-  constructor(private readonly _router: Router) {}
+  constructor(private readonly _router: Router) {
+  }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+  }
 
   /**
    * set status as logged in without providing a token

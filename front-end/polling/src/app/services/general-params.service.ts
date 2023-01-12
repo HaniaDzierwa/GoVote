@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +12,21 @@ export class GeneralParamsService {
 
   getServiceTypeUrl(serviceType: ServicesType): string | undefined {
     switch (serviceType) {
-      case ServicesType.API_TEST: { return GeneralParamsService.API_TEST; }
-      default: { }
+      case ServicesType.API_TEST: {
+        return GeneralParamsService.API_TEST;
+      }
+      default: {
+      }
     }
-
     return;
   }
 
   public static apiAddress() {
-    if (location.origin.includes('localhost')) {
+    console.log(location.origin)
+    if (!location.origin.includes('localhost')) {
       return 'https://ballot-polsl.herokuapp.com/api'; // 'http://localhost:8080/api'; //
     }
-    return location.origin;
+    return "http://localhost:8080/api";
   }
 
 }

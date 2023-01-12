@@ -2,14 +2,13 @@ package com.aleklew.ballot.modules.general.services;
 
 import com.aleklew.ballot.modules.general.db.dbmodels.BallotAnswerEntity;
 import com.aleklew.ballot.modules.general.db.dbmodels.BallotQuestionEntity;
-import com.aleklew.ballot.modules.general.db.interfaces.BallotAnswerRepository;
 import com.aleklew.ballot.modules.general.db.interfaces.BallotQuestionRepository;
-import com.aleklew.ballot.modules.general.db.interfaces.BallotRepository;
 import com.aleklew.ballot.modules.general.interfaces.BallotQuestionService;
 import com.aleklew.ballot.modules.general.rest.dto.CreateQuestionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -19,14 +18,7 @@ import java.util.stream.Collectors;
 public class BaseBallotQuestionCreatorService implements BallotQuestionService {
 
     @Autowired
-    private BallotRepository ballotRepository;
-
-    @Autowired
     private BallotQuestionRepository ballotQuestionRepository;
-
-    @Autowired
-    private BallotAnswerRepository ballotAnswerRepository;
-
 
     @Override
     public BallotQuestionEntity createBallotQuestion(CreateQuestionRequest request) {
@@ -39,9 +31,10 @@ public class BaseBallotQuestionCreatorService implements BallotQuestionService {
                         .answers(null)
                         .build();
 
-        AtomicInteger answerCounter = new AtomicInteger(request.getAnswers().size());
+        var answers = Arrays.stream(request.getAnswers()).collect(Collectors.toSet());
+        AtomicInteger answerCounter = new AtomicInteger(answers.size());
         ballotQuestionEntity.setAnswers(
-                request.getAnswers().stream()
+                answers.stream()
                         .map(
                                 answer ->
                                         new BallotAnswerEntity()

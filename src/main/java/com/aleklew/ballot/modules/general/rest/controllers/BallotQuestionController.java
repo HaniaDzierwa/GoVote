@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1/ballotQuestion")
 public class BallotQuestionController {
@@ -17,17 +18,17 @@ public class BallotQuestionController {
     private BallotQuestionService ballotQuestionCreatorService;
 
     @DeleteMapping("/delete")
-    public ResponseEntity<?> deleteBallotQuestion(@RequestParam int questionId) {
+    public ResponseEntity<Boolean> deleteBallotQuestion(@RequestParam int questionId) {
         // TODO: olalew permissions/auth
 
         if (ballotQuestionCreatorService.deleteBallotQuestion(questionId)) {
-            return ResponseEntity.ok("deleted");
+            return ResponseEntity.ok(true);
         }
-        return ResponseEntity.ok("not deleted");
+        return ResponseEntity.ok(false);
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createBallotQuestion(@RequestBody CreateQuestionRequest request)
+    public ResponseEntity<BallotQuestionEntity> createBallotQuestion(@RequestBody CreateQuestionRequest request)
     {
         BallotQuestionEntity createdQuestion = ballotQuestionCreatorService.createBallotQuestion(request);
         if(createdQuestion != null) {

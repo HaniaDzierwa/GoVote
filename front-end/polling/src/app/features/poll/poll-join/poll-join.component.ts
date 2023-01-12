@@ -10,3 +10,6 @@ export class PollJoinComponent implements OnInit {
 
   ngOnInit() {}
 }
+
+
+//todo show only published, not filled  poll with name in table -> option for each : join/fill

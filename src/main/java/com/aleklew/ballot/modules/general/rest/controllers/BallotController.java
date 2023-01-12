@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins ={ "http://localhost:8080" ,"http://localhost:4200" },
+		exposedHeaders="Access-Control-Allow-Origin")
+
 @RestController
 @RequestMapping("/api/v1/ballot")
 public class BallotController {
@@ -18,14 +21,14 @@ public class BallotController {
 	@Autowired
 	private BallotQuestionService ballotQuestionService;
 
-	private BallotQuestionController ballotQuestionController = new BallotQuestionController();
 
-	@PostMapping("/create")
+	@PostMapping ("/create")
 	public ResponseEntity<BallotEntity> createBallot(@RequestBody CreateBallotRequest request) {
 		// TODO: olalew permissions/auth
 
 		BallotEntity createdBallot = ballotService.createBallot(request);
 		if (createdBallot != null) {
+			System.out.println("seending");
 			return ResponseEntity.ok(createdBallot);
 		}
 		return ResponseEntity.ok().build();

@@ -7,8 +7,6 @@ import {OpenQuestionComponent} from "./open-question/open-question.component";
 import {ScaleQuestionComponent} from "./scale-question/scale-question.component";
 import {SingleChoiceQuestionComponent} from "./single-choice-question/single-choice-question.component";
 
-
-
 @NgModule({
   imports: [CommonModule,MaterialDesignModule
   ],
