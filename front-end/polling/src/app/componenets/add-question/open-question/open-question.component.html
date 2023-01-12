@@ -1,5 +1,5 @@
 <div  class="poll-type direction-column">
   <mat-card-title> Odpowiedź: </mat-card-title>
-  <input #answerInput MatInput class="poll-input input-open" (change)="inputChange(answerInput.value)">
+  <input  [disabled]="true" #answerInput MatInput class="poll-input input-open" (change)="inputChange(answerInput.value)">
 </div>
 

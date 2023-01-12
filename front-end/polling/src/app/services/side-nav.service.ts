@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs'
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,9 @@ import { Subject } from 'rxjs'
 export class SideNavService {
 
   sideMenuShowedStatus$ = new Subject<boolean>();
-  constructor() { }
+
+  constructor() {
+  }
 
   showSideMenu(): void {
     this.sideMenuShowedStatus$.next(true);

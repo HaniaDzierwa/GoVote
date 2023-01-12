@@ -10,3 +10,7 @@ export class PollHistoryComponent implements OnInit {
 
   ngOnInit() {}
 }
+
+
+//todo show pollHistory with name in table  -> option for each :  modify(only if not publish), publish, delete
+//todo filled poll only to see

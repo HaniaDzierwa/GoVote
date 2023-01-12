@@ -10,3 +10,5 @@ import {PollJoinComponent} from "./poll-join.component";
 })
 
 export class PollJoinModule {}
+
+

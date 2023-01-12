@@ -7,10 +7,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @ComponentScan({"com.aleklew.ballot.modules.general"})
-public class GeneralConfiguration {
+public class GeneralConfiguration implements WebMvcConfigurer {
 
     @Bean(name = "ballotCreatorService")
     @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
@@ -18,4 +20,10 @@ public class GeneralConfiguration {
         return new BaseBallotService();
     }
 
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedMethods("*");
+    }
 }
+
+

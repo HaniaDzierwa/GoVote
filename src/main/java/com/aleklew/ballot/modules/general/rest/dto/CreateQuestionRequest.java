@@ -1,7 +1,6 @@
 package com.aleklew.ballot.modules.general.rest.dto;
 
 import lombok.Value;
-import java.util.Set;
 
 @Value
 public class CreateQuestionRequest {
@@ -9,5 +8,5 @@ public class CreateQuestionRequest {
     int orderNumber;
     String questionContent;
     String questionType;
-    Set<String> answers;
+    String[] answers;
 }

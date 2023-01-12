@@ -2,13 +2,15 @@
   <mat-card-content>
     <mat-card-title> Treść pytania:
       <textarea matInput
-                #test
+                #question
                 cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
                 cdkAutosizeMinRows="1"
                 cdkAutosizeMaxRows="5"
                 class="poll-input"
-                (change)="setQuestion(test.value)"
+                style="resize: none"
+                style="overflow: hidden"
+                (change)="setQuestion(question.value)"
       ></textarea>
     </mat-card-title>
 
@@ -41,7 +43,7 @@
     </div>
     <div class="btn-right-display">
       <mat-checkbox (change)="createNextToggle()">Dodaj ponownie</mat-checkbox>
-      <button (click)="addQuestion()" class="btn-add-question">DODAJ</button>
+      <button (click)="addQuestion(); question.value=''" class="btn-add-question" >DODAJ</button>
     </div>
   </mat-card-content>
 </mat-card>

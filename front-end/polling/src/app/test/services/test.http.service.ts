@@ -10,6 +10,11 @@ export class TestHttpService {
   constructor(private http: HttpClientService, private general: GeneralParamsService) { }
 
   public test(): Promise<any> {
-    return this.http.request('post', this.general.getUrl(`/bajo`, ServicesType.API_TEST), null)!.toPromise();
+    return this.http.request(
+      'post',
+      this.general.getUrl(`/bajo`,
+        ServicesType.API_TEST),
+      null
+    )!.toPromise();
   }
 }
