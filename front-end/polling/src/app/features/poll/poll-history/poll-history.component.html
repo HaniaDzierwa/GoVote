@@ -1,3 +1,14 @@
-<p>
-  filtr do ankiety: wypelnione,stworzone,opublikowane...!
-</p>
+<mat-accordion multi>
+  <div class="card-polls">
+    <mat-expansion-panel *ngFor="let poll of polls" class="poll">
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ poll.ballotName }} </mat-panel-title>
+
+        <mat-panel-description>
+          {{ poll.ballotDescription }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>This is the primary content of the panel.</p>
+    </mat-expansion-panel>
+  </div>
+</mat-accordion>

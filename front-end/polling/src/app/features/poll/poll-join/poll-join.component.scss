@@ -1,0 +1,38 @@
+.poll{
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+}
+.add-button{
+    font-size: large;
+    outline: 2px solid rgb(211, 234, 243);
+    outline-offset: -2px;
+    background-color: white;
+    align-content: stretch;
+}
+
+.title{
+    font-size: 25px;
+}
+
+.description{
+    font-size: 16px;
+}
+
+.polls{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.poll-input {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(211, 234, 243);
+    height: 30px;
+    margin: 20px;
+    width: 500px;
+    caret-color: black;
+
+}

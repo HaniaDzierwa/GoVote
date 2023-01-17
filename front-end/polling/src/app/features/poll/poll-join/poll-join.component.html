@@ -1,3 +1,26 @@
-<p>
-  poll works!
-</p>
+<div class="polls">
+  <mat-card class="card-polls">
+    <input
+      matInput
+      class="poll-input"
+      placeholder="Wyszukaj Ankietę"
+      [(ngModel)]="searchValue"
+      name="searchValue"
+      #input
+    />
+    <mat-card *ngFor="let poll of polls | filter : searchValue" class="poll">
+      <mat-card-header>
+        <mat-card-title class="title">
+          {{ poll.ballotName }}
+        </mat-card-title>
+        <mat-card-subtitle class="description">
+          {{ poll.ballotDescription }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-actions>
+        <button mat-button color="primary" class="add-button">Dołącz</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-card>
+</div>

@@ -1,6 +1,7 @@
 package com.aleklew.ballot.modules.general.rest.controllers;
 
 import com.aleklew.ballot.modules.general.db.dbmodels.BallotEntity;
+import com.aleklew.ballot.modules.general.db.interfaces.BallotRepository;
 import com.aleklew.ballot.modules.general.interfaces.BallotService;
 import com.aleklew.ballot.modules.general.interfaces.BallotQuestionService;
 import com.aleklew.ballot.modules.general.rest.dto.BallotRestModel;
@@ -8,6 +9,9 @@ import com.aleklew.ballot.modules.general.rest.dto.CreateBallotRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.awt.print.Pageable;
+import java.util.List;
 
 @CrossOrigin(origins ={ "http://localhost:8080" ,"http://localhost:4200" },
 		exposedHeaders="Access-Control-Allow-Origin")
@@ -21,6 +25,11 @@ public class BallotController {
 	@Autowired
 	private BallotQuestionService ballotQuestionService;
 
+	private final BallotRepository ballotRepository;
+
+	public BallotController(BallotRepository ballotRepository) {
+		this.ballotRepository = ballotRepository;
+	}
 
 	@PostMapping ("/create")
 	public ResponseEntity<BallotEntity> createBallot(@RequestBody CreateBallotRequest request) {
@@ -65,5 +74,9 @@ public class BallotController {
 			return ResponseEntity.ok(ballotRestModel);
 		}
 		return ResponseEntity.ok().build();
+	}
+	@GetMapping("/Ballots")
+	public ResponseEntity<List<BallotEntity>> getBallots(){
+		return ResponseEntity.ok(ballotRepository.findAll());
 	}
 }

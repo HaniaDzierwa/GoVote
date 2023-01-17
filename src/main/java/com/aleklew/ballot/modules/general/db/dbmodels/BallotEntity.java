@@ -35,6 +35,7 @@ public class BallotEntity {
 	@Column(name = "BallotDescription")
 	private String ballotDescription;
 
+
 	public BallotEntity(int ownerId, String ballotName, String ballotDescription) {
 		this.ownerId = ownerId;
 		this.ballotName = ballotName;
