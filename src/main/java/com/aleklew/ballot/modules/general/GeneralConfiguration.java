@@ -1,7 +1,7 @@
 package com.aleklew.ballot.modules.general;
 
-import com.aleklew.ballot.modules.general.interfaces.BallotService;
-import com.aleklew.ballot.modules.general.services.BaseBallotService;
+import com.aleklew.ballot.modules.ballot.interfaces.BallotService;
+import com.aleklew.ballot.modules.ballot.services.BaseBallotService;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

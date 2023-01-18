@@ -1,7 +1,7 @@
 package com.aleklew.ballot.modules.profiles.services;
 
 import com.aleklew.ballot.modules.profiles.interfaces.IAuthenticationService;
-import com.aleklew.ballot.modules.profiles.interfaces.IProfileRepository;
+import com.aleklew.ballot.modules.profiles.interfaces.IUserProfileService;
 import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
 public class BaseAuthenticationService implements IAuthenticationService {
 
-    private IProfileRepository profileRepository;
+    private IUserProfileService profileRepository;
 
     @Autowired
-    public BaseAuthenticationService(IProfileRepository profileRepository) {
+    public BaseAuthenticationService(IUserProfileService profileRepository) {
         this.profileRepository = profileRepository;
     }
 
