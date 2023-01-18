@@ -29,7 +29,7 @@ public class SharedMailingService implements ISharedMailingService {
 
           StringBuilder messageContentBuilder = new StringBuilder();
           messageContentBuilder.append("<h3>Witaj użytkowniku!</h3>");
-          messageContentBuilder.append(String.format("<a href=\"%s%s\">Aktywuj konto</a>", "http://localhost:8080/api/v1/public/activate?activationCode=", activationCode));
+          messageContentBuilder.append(String.format("<a href=\"%s%s\">Aktywuj konto</a>", "https://ballot-polsl.herokuapp.com/api/v1/public/activate?activationCode=", activationCode));
 
           helper.setText(messageContentBuilder.toString(), true); // Use this or above line.
 
