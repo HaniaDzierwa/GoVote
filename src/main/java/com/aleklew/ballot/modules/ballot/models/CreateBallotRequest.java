@@ -7,4 +7,5 @@ public class CreateBallotRequest {
     String ballotDescription;
     String ballotName;
     int ownerId;
+    boolean published;
 }

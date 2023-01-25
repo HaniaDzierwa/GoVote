@@ -5,6 +5,7 @@ import com.aleklew.ballot.modules.ballot.dbmodels.BallotQuestionEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +16,7 @@ public class BallotRestModel {
     String ballotDescription;
     String ballotName;
     int ownerId;
+    boolean published;
     Set<BallotQuestionEntity> questions;
 
     public static BallotRestModel fromEntity(BallotEntity ballotEntity) {
@@ -22,6 +24,7 @@ public class BallotRestModel {
                 ballotEntity.getBallotDescription(),
                 ballotEntity.getBallotName(),
                 ballotEntity.getOwnerId(),
+                ballotEntity.isPublished(),
                 new HashSet<>()
         );
     }
