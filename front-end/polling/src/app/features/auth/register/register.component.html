@@ -6,7 +6,13 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Imię" formControlName="name" ngModel pattern=" *[a-zA-Z]* *">
+              <input
+                matInput
+                placeholder="Imię"
+                formControlName="name"
+                ngModel
+                pattern=" *[a-zA-Z]* *"
+              />
               <mat-error
                 *ngIf="registerForm.controls['name'].hasError('pattern')"
               >
@@ -23,7 +29,8 @@
                 matInput
                 placeholder="Nazwisko"
                 formControlName="surname"
-                ngModel pattern=" *[a-zA-Z]*-?[a-zA-Z]*? *"
+                ngModel
+                pattern=" *[a-zA-Z]*-?[a-zA-Z]*? *"
               />
               <mat-error
                 *ngIf="registerForm.controls['surname'].hasError('pattern')"
@@ -41,7 +48,8 @@
                 matInput
                 placeholder="Nazwa użytkownika"
                 formControlName="login"
-                ngModel pattern=" *[a-zA-Z0-9]*.{8,}"
+                ngModel
+                pattern=" *[a-zA-Z0-9]*.{8,}"
               />
               <mat-error
                 *ngIf="registerForm.controls['login'].hasError('pattern')"
@@ -60,7 +68,7 @@
                 placeholder="Email"
                 type="email"
                 formControlName="email"
-                ngModel pattern ="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
               />
               <mat-error
                 *ngIf="registerForm.controls['email'].hasError('pattern')"
@@ -79,9 +87,10 @@
                 placeholder="Hasło"
                 type="password"
                 formControlName="password"
-                ngModel pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
+                ngModel
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               />
-               <!-- duza litera, cyfra, minimum 8  -->
+              <!-- duza litera, cyfra, minimum 8  -->
               <mat-error
                 *ngIf="registerForm.controls['password'].hasError('pattern')"
               >
@@ -94,10 +103,13 @@
         <div class="row">
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="PESEL"
-               formControlName="PESEL"
-               ngModel pattern="[0-9].{11}" 
-                />
+              <input
+                matInput
+                placeholder="PESEL"
+                formControlName="PESEL"
+                ngModel
+                pattern="^[0-9]{2}([02468]1|[13579][012])(0[1-9]|1[0-9]|2[0-9]|3[01])[0-9]{5}$"
+              />
               <mat-error
                 *ngIf="registerForm.controls['PESEL'].hasError('pattern')"
               >
@@ -109,11 +121,7 @@
 
         <div class="buttons">
           <div>
-            <button
-              mat-button
-              class="log-in-button"
-              (click)="openLoginForm()"
-            >
+            <button mat-button class="log-in-button" (click)="openLoginForm()">
               ZALOGUJ SIĘ
             </button>
           </div>

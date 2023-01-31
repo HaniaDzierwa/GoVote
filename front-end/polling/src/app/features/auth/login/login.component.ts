@@ -1,4 +1,4 @@
-import {  Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -24,11 +24,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this._authService.isLogged()) {
-      // this._router.navigateByUrl('home');
+      this._router.navigateByUrl('poll-history');
     }
   }
 
-  loginAttempt(): boolean {
+  loginAttempt(): void {
     return this._authService.logUser(
       this.loginForm.value.login!,
       this.loginForm.value.password!
@@ -36,19 +36,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const result = this.loginAttempt();
-      this.loginForm.controls['password'].reset();
-      if (!result) {
-
-      this._matSnackBar.open(
-        'Login lub hasło niepoprawne. Proszę spróbować jeszcze raz',
-        'Zamknij',
-        {
-          duration: 5000,
-          verticalPosition: 'bottom',
-        }
-      );
-    }
+    this.loginAttempt();
+    this.loginForm.controls['password'].reset();
   }
 
   showLoginForm(): boolean {

@@ -7,6 +7,7 @@ import { PollModel } from '../model/poll-model';
 import { AddQuestionDto } from '../model/add-question-dto';
 import { CreateQuestionWithAnswersRequest } from '../model/create-question-with-answers-request';
 import { QuestionResponse } from '../model/question-response';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -29,18 +30,19 @@ export class PollService {
       'GET, POST, OPTIONS, PUT, PATCH, DELETE'
     );
     this._header.append('Access-Control-Allow-Origin', '*');
-    this._header.append(
-      'Access-Control-Allow-Headers',
-      'X-Requested-With,content-type'
-    );
+
     this._url = GeneralParamsService.apiAddress();
   }
 
   createPoll(createPollRequest: CreatePollRequest): Observable<any> {
-    const urlCreatePoll = '/v1/ballot/create';
+    const urlCreatePoll = 'api/v1/ballot/create';
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
+    };
     return this._httpService
-      .post<PollModel>(this._url + urlCreatePoll, createPollRequest, {
-        headers: this._header,
+      .post<PollModel>(urlCreatePoll, createPollRequest, {
+        headers: headers,
         observe: 'response',
       })
       .pipe(
@@ -54,12 +56,16 @@ export class PollService {
   createQuestionWithAnswers(
     createQuestionWithAnswersRequest: CreateQuestionWithAnswersRequest
   ): Observable<boolean> {
-    const urlCreateQuestion = '/v1/ballotQuestion/create';
+    const urlCreateQuestion = 'api/v1/ballotQuestion/create';
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
+    };
     return this._httpService
       .post<AddQuestionDto>(
         this._url + urlCreateQuestion,
         createQuestionWithAnswersRequest,
-        { headers: this._header, observe: 'response' }
+        { headers: headers, observe: 'response' }
       )
       .pipe(
         map((response) => {
@@ -71,9 +77,13 @@ export class PollService {
 
   getAllQuestionWithAnswersForPoll(pollId: number): Observable<boolean> {
     const urlCreatedQuestions = '/v1/ballotQuestion/getQuestions';
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
+    };
     return this._httpService
-      .get<Set<QuestionResponse>>(this._url + urlCreatedQuestions, {
-        headers: this._header,
+      .get<Set<QuestionResponse>>(urlCreatedQuestions, {
+        headers: headers,
         observe: 'response',
         params: new HttpParams().set('ballotId', pollId),
       })
@@ -86,17 +96,28 @@ export class PollService {
   }
 
   deleteQuestion(questionId: number) {
-    const urlCreatedQuestions = '/v1/ballotQuestion/delete';
-    return this._httpService.delete(this._url + urlCreatedQuestions, {
-      headers: this._header,
+    const urlCreatedQuestions = 'api/v1/ballotQuestion/delete';
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
+    };
+    return this._httpService.delete(urlCreatedQuestions, {
+      headers: headers,
       params: new HttpParams().set('questionId', questionId),
     });
   }
 
   getAllPolls(): Observable<PollModel[]> {
-    const urlGetAllPolls = '/v1/ballot/Ballots';
-    return this._httpService.get<PollModel[]>(this._url + urlGetAllPolls, {
-      headers: this._header,
+    const urlGetAllPolls = 'api/v1/ballot/Ballots';
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
+    };
+
+    console.log(this._header.get('Authorization'));
+
+    return this._httpService.get<PollModel[]>(urlGetAllPolls, {
+      headers: headers,
     });
   }
 }
