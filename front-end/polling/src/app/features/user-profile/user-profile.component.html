@@ -1,5 +1,36 @@
-<mat-card class="main">
-  <mat-card-header>
-    <mat-card-title class="header">Profil użytkwonika</mat-card-title>
-  </mat-card-header>
-</mat-card>
+<div class="login-form">
+    <form [formGroup]="loginForm" novalidate>
+        <mat-card class="login-card">
+            <h1 class="title">Profil Użytkownika</h1>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            Nazwa użytkownika: <strong> Imie do edycji </strong><br>
+                            Nazwisko: <strong> Nazwisko do edycji </strong><br>
+                            E-Mail: <strong> Mail do edycji </strong><br>
+                            Data urodzenia: <strong> Data do edycji </strong><br>
+                            Płeć użytkownika: <strong> Płeć do edycji </strong><br>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <!--<mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Podczas edycji podmienić pola na takie jak to"
+                type="password"
+                formControlName="password"
+              />
+            </mat-form-field>-->
+                        <button mat-raised-button class="edit-button" (click)="openRegisterWindow()">
+                            Edytuj Dane
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </form>
+</div>
