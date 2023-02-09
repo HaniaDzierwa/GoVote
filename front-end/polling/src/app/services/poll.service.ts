@@ -8,6 +8,7 @@ import { AddQuestionDto } from '../model/add-question-dto';
 import { CreateQuestionWithAnswersRequest } from '../model/create-question-with-answers-request';
 import { QuestionResponse } from '../model/question-response';
 import { environment } from '../../environments/environment';
+import { PollWithQuestions } from '../model/PollWithQuestions';
 
 @Injectable({
   providedIn: 'root',
@@ -63,7 +64,7 @@ export class PollService {
     };
     return this._httpService
       .post<AddQuestionDto>(
-        this._url + urlCreateQuestion,
+        urlCreateQuestion,
         createQuestionWithAnswersRequest,
         { headers: headers, observe: 'response' }
       )
@@ -114,9 +115,23 @@ export class PollService {
       Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
     };
 
-    console.log(this._header.get('Authorization'));
+    // console.log(this._header.get('Authorization'));
 
     return this._httpService.get<PollModel[]>(urlGetAllPolls, {
+      headers: headers,
+    });
+  }
+
+  getPollQuestions(pollId: number): Observable<PollWithQuestions> {
+    const urlGetPollById = `api/v1/ballot/getBallotWithQuestions/?ballotId=${pollId}`;
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
+    };
+
+    console.log(localStorage.getItem(environment.tokken));
+
+    return this._httpService.get<PollWithQuestions>(urlGetPollById, {
       headers: headers,
     });
   }

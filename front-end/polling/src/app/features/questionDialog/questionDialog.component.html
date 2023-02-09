@@ -1,0 +1,20 @@
+<div>
+  <div *ngFor="let question of pollWithQuestions.questions">
+    <div [ngSwitch]="question.type">
+      <div *ngSwitchCase="'ABCSingle'"></div>
+
+      <div *ngSwitchCase="'singleChoice'">
+        <mat-radio-group class="poll-type direction-column">
+          <mat-card-title>
+            Pytanie: {{ question.questionContent }}
+          </mat-card-title>
+        </mat-radio-group>
+      </div>
+      <div *ngSwitchCase="'SCALE'"></div>
+
+      <div *ngSwitchCase="'OPEN'"></div>
+
+      <div *ngSwitchCase="'ABCMultiple'"></div>
+    </div>
+  </div>
+</div>

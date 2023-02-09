@@ -19,7 +19,14 @@
       </mat-card-header>
 
       <mat-card-actions>
-        <button mat-button color="primary" class="add-button">Dołącz</button>
+        <button
+          mat-button
+          color="primary"
+          class="add-button"
+          (click)="onJoinPoll(poll)"
+        >
+          Dołącz
+        </button>
       </mat-card-actions>
     </mat-card>
   </mat-card>

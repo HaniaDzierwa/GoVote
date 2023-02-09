@@ -4,6 +4,9 @@ import { catchError, filter, Observable, of, takeUntil, Subject } from 'rxjs';
 import { PollModel } from '../../../model/poll-model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FilterPipe } from 'src/app/utils/filter-pipe';
+import { MatDialog } from '@angular/material/dialog';
+import { QuestionDialogComponent } from '../../questionDialog/questionDialog.component';
+import { PollWithQuestions } from 'src/app/model/PollWithQuestions';
 
 @Component({
   selector: 'app-poll-join',
@@ -23,7 +26,10 @@ export class PollJoinComponent implements OnInit {
     this._polls = value;
   }
 
-  constructor(private readonly _pollService: PollService) {}
+  constructor(
+    private readonly _pollService: PollService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.getAllPolls();
@@ -43,6 +49,28 @@ export class PollJoinComponent implements OnInit {
         this._polls.push(...result!);
       });
   }
+
+  onJoinPoll(poll: PollModel): void {
+    this._pollService
+      .getPollQuestions(poll.ballotId)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          return of(undefined);
+        }),
+        filter((res) => Boolean(res)),
+        takeUntil(this._destroy$)
+      )
+      .subscribe((result) => {
+        console.log(result);
+        const dialogRef = this.dialog.open(QuestionDialogComponent, {
+          data: result as PollWithQuestions,
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {});
+      });
+  }
+
+  openDialog() {}
 }
 
 //todo show only published, not filled  poll with name in table -> option for each : join/fill
