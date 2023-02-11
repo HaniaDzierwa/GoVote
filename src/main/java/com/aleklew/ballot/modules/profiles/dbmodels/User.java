@@ -62,6 +62,12 @@ public class User implements UserDetails {
 	@Column(name="ActivationCode")
 	private String activationCode;
 
+	@Column(name="ChangePasswordCode")
+	private String changePasswordCode;
+
+	@Column(name = "PasswordCodeExpDate")
+	private Date passwordCodeExpDate;
+
 	@Column(name="AccountStatus")
 	private int accountStatus;
 
@@ -116,6 +122,22 @@ public class User implements UserDetails {
 
 	public void setActivationCode(String activationCode) {
 		this.activationCode = activationCode;
+	}
+
+	public String getChangePasswordCode() {
+		return changePasswordCode;
+	}
+
+	public void setChangePasswordCode(String changePasswordCode) {
+		this.changePasswordCode = changePasswordCode;
+	}
+
+	public Date getPasswordCodeExpDate() {
+		return passwordCodeExpDate;
+	}
+
+	public void setPasswordCodeExpDate(Date passwordCodeExpDate) {
+		this.passwordCodeExpDate = passwordCodeExpDate;
 	}
 
 	public void setPassword(String password)
@@ -173,6 +195,8 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return accountStatus == 2;
 	}
+
+
 
 	// endregion
 

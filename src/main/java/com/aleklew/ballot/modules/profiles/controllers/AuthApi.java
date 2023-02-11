@@ -2,15 +2,10 @@ package com.aleklew.ballot.modules.profiles.controllers;
 
 import com.aleklew.ballot.modules.general.infrastructure.HelperMethods;
 import com.aleklew.ballot.modules.general.interfaces.ISharedMailingService;
-import com.aleklew.ballot.modules.general.services.SharedMailingService;
 import com.aleklew.ballot.modules.profiles.dbmodels.User;
-import com.aleklew.ballot.modules.profiles.models.LoginRequest;
-import com.aleklew.ballot.modules.profiles.models.LoginUserResponse;
-import com.aleklew.ballot.modules.profiles.models.RegisterRequest;
+import com.aleklew.ballot.modules.profiles.models.*;
 import com.aleklew.ballot.modules.profiles.services.UserProfileService;
 import com.aleklew.ballot.security.JwtTokenUtil;
-import io.swagger.annotations.Api;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +13,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -105,7 +99,25 @@ public class AuthApi {
         } catch (DisabledException dex) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-
     }
 
+    @PostMapping("requestPasswordRecovery")
+    public ResponseEntity<String> requestPasswordRecovery(@RequestBody RequestPasswordRecoveryRequest request) {
+        User user = userProfileService.generatePasswordRecoveryCode(request.getEmail());
+        if (user == null)
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+
+        sharedMailingService.sendPasswordRecoveryMail(user.getEmail(), user.getChangePasswordCode());
+        return ResponseEntity.status(HttpStatus.OK).body("Wysłano email do odzyskania hasła");
+    }
+
+    @PostMapping("recoverPassword")
+    public ResponseEntity<String> recoverPassword(@RequestBody RecoverPasswordRequest request) {
+        User user = userProfileService.changeUserPassword(request);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body("Zmiana hasła zakończyła się sukcesem");
+    }
 }

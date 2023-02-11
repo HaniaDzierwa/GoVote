@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  loginKey: 'logged',
+  tokken: 'tokken',
 };
