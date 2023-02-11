@@ -62,6 +62,8 @@ export class PollJoinComponent implements OnInit {
       )
       .subscribe((result) => {
         console.log(result);
+        result!.ballotId = poll.ballotId;
+
         const dialogRef = this.dialog.open(QuestionDialogComponent, {
           data: result as PollWithQuestions,
         });
@@ -69,8 +71,6 @@ export class PollJoinComponent implements OnInit {
         dialogRef.afterClosed().subscribe((result) => {});
       });
   }
-
-  openDialog() {}
 }
 
 //todo show only published, not filled  poll with name in table -> option for each : join/fill

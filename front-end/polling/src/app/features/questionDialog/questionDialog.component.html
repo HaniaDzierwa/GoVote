@@ -1,20 +1,87 @@
-<div>
-  <div *ngFor="let question of pollWithQuestions.questions">
-    <div [ngSwitch]="question.type">
-      <div *ngSwitchCase="'ABCSingle'"></div>
-
-      <div *ngSwitchCase="'singleChoice'">
-        <mat-radio-group class="poll-type direction-column">
+<div formGroup="answersForm">
+  <div formArrayName="questions">
+    <div *ngFor="let question of questions.controls; let index = index">
+      <div [ngSwitch]="question.value['type']">
+        <div *ngSwitchCase="'ABCSingle'">
           <mat-card-title>
-            Pytanie: {{ question.questionContent }}
+            Pytanie: {{ question.value["questionContent"] }}
           </mat-card-title>
-        </mat-radio-group>
+
+          <div *ngFor="let answer of question.value['answers']">
+            <mat-checkbox
+              [(ngModel)]="answer.userAnswer"
+              (change)="onCheckboxChangeABCSingle(question, answer)"
+            >
+              {{ answer.answerText }}
+            </mat-checkbox>
+          </div>
+        </div>
+        <div *ngSwitchCase="'singleChoice'">
+          <mat-card-title>
+            Pytanie: {{ question.value["questionContent"] }}
+          </mat-card-title>
+
+          <div *ngFor="let answer of question.value['answers']">
+            <mat-checkbox [(ngModel)]="answer.userAnswer">
+              {{ answer.answerText }}
+            </mat-checkbox>
+          </div>
+        </div>
+        <div *ngSwitchCase="'SCALE'">
+          <mat-card-title>
+            Pytanie: {{ question.value["questionContent"] }}
+          </mat-card-title>
+
+          <div *ngFor="let answer of question.value['answers']">
+            <div>
+              <mat-radio-group
+                class="poll-type direction-row"
+                aria-labelledby="scale-radio-buttons-group"
+                class="SCALE"
+                [(ngModel)]="answer.userAnswer"
+              >
+                <div
+                  *ngFor="
+                    let n of answer.answerText | DemoNumber;
+                    let i = index
+                  "
+                  class="radio-right"
+                >
+                  <mat-radio-button value="{{ i }}"> {{ i }} </mat-radio-button>
+                </div>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'OPEN'">
+          <mat-card-title>
+            Pytanie: {{ question.value["questionContent"] }}
+          </mat-card-title>
+
+          <input
+            matInput
+            [(ngModel)]="question.value['answers'][0]"
+            placeholder="Podaj odpowiedź"
+          />
+        </div>
+
+        <div *ngSwitchCase="'ABCMultiple'">
+          <mat-card-title>
+            Pytanie: {{ question.value["questionContent"] }}
+          </mat-card-title>
+
+          <div *ngFor="let answer of question.value['answers']">
+            <mat-checkbox [(ngModel)]="answer.userAnswer">
+              {{ answer.answerText }}
+            </mat-checkbox>
+          </div>
+        </div>
       </div>
-      <div *ngSwitchCase="'SCALE'"></div>
-
-      <div *ngSwitchCase="'OPEN'"></div>
-
-      <div *ngSwitchCase="'ABCMultiple'"></div>
     </div>
+
+    <button mat-raised-button class="accept-answer-button" (click)="onAccept()">
+      Akceptuj
+    </button>
   </div>
 </div>

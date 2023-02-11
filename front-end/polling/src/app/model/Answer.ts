@@ -4,4 +4,5 @@ export interface Answer {
   responderToken: number;
   answerText: string;
   answerOrderNumber: number;
+  userAnswer: string | boolean | number;
 }

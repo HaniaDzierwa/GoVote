@@ -5,16 +5,31 @@ import {
   materials,
 } from '../../../mat-design/material-design.module';
 import { PollJoinComponent } from './poll-join.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from 'src/app/utils/filter-pipe';
 import { QuestionDialogComponent } from '../../questionDialog/questionDialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { DemoNumberPipe } from '../../../utils/DemoNumber.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
-const Materials = [MatDialogModule];
+const Materials = [
+  MatDialogModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatFormFieldModule,
+  FormsModule,
+];
 
 @NgModule({
   imports: [CommonModule, MaterialDesignModule, FormsModule, Materials],
-  declarations: [PollJoinComponent, FilterPipe, QuestionDialogComponent],
+  declarations: [
+    PollJoinComponent,
+    FilterPipe,
+    QuestionDialogComponent,
+    DemoNumberPipe,
+  ],
   exports: [PollJoinComponent],
 })
 export class PollJoinModule {}

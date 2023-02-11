@@ -1,31 +1,38 @@
-<mat-card class="main">
+<mat-card class="main" *ngIf="isReady">
   <mat-card-header>
     <mat-card-title class="header">Utwórz ankietę</mat-card-title>
   </mat-card-header>
 
   <form [formGroup]="pollForm" (ngSubmit)="onCreatePoll(pollForm.value)">
     <mat-card-content>
-
-      <mat-card-title> Nazwa:
-        <input matInput class="poll-input" formControlName="pollName">
+      <mat-card-title>
+        Nazwa:
+        <input matInput class="poll-input" formControlName="pollName" />
       </mat-card-title>
 
-      <mat-card-title> Opis ankiety:
-        <textarea class='poll-input description'
-                  role="textbox"
-                  contenteditable
-                  rows="1"
-                  oninput="this.style.height = 'auto' ; this.style.height = this.scrollHeight-4 +'px'"
-                  formControlName="pollDesc">
-      </textarea>
+      <mat-card-title>
+        Opis ankiety:
+        <textarea
+          class="poll-input description"
+          role="textbox"
+          contenteditable
+          rows="1"
+          oninput="this.style.height = 'auto' ; this.style.height = this.scrollHeight-4 +'px'"
+          formControlName="pollDesc"
+        >
+        </textarea>
       </mat-card-title>
 
       <div class="btn-right-display">
-        <button type="submit" class="btn-add-question"
-                [disabled]="
+        <button
+          type="submit"
+          class="btn-add-question"
+          [disabled]="
             pollForm.controls['pollName'].hasError('required') ||
-            pollForm.controls['pollDesc'].hasError('required')"
-        > UTWÓRZ
+            pollForm.controls['pollDesc'].hasError('required')
+          "
+        >
+          UTWÓRZ
         </button>
       </div>
     </mat-card-content>

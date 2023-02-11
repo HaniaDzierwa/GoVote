@@ -6,4 +6,5 @@ export interface PollWithQuestions {
   ownerId: number;
   published: boolean;
   questions: Question[];
+  ballotId?: number;
 }
