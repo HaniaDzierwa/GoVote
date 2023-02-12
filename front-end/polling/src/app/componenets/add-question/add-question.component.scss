@@ -1,9 +1,6 @@
-:host ::ng-deep {
-
-  mat-card-header {
+mat-card-header {
     display: flex;
     justify-content: center;
-
   }
 
   .header {
@@ -42,16 +39,14 @@
     display: flex;
     gap: 10px;
 
-    ::ng-deep .mat-radio-label {
+  }:ng-deep .mat-radio-label {
       display: flex;
       flex-direction: column;
       margin-right: 20px;
 
-      .mat-radio-label-content {
+}.mat-radio-label-content {
         padding-left: 0;
       }
-    }
-  }
 
   .poll-type:first-of-type {
     padding-top: 20px;
@@ -78,13 +73,22 @@
     background-color: #b52ce6 !important;
   }
 
-  .btn-add-question {
+  .btn-left {
     font-size: large;
     width: 200px;
     outline: 2px solid #d4ade2;
     outline-offset: -2px;
     background-color: white;
     align-content: stretch;
+  }
+  .btn-right {
+    font-size: large;
+    width: 200px;
+    outline: 2px solid #d4ade2;
+    outline-offset: -2px;
+    background-color: white;
+    align-content: stretch;
+    align-self: right;
   }
 
   .btn-add-question:disabled {
@@ -109,12 +113,13 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
 
     .mat-radio-label {
       display: flex;
       flex-direction: row;
     }
-  }
+  
 
   input {
     margin-left: 10px;
@@ -133,10 +138,10 @@
 
   .mat-card-title {
     display: flex;
+    size: 20px;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
+    text-align: center;
     caret-color: transparent;
   }
-}
-
-

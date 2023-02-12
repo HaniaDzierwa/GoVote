@@ -2,38 +2,17 @@
   <hr>
   <mat-card class="questions">
     <mat-card-content>
-      <mat-card-title> Treść pytania:
-        <textarea matInput
-                  cdkTextareaAutosize
-                  #autosize="cdkTextareaAutosize"
-                  cdkAutosizeMinRows="1"
-                  cdkAutosizeMaxRows="5"
+      <mat-card-title> Nazwa pytania tutaj!!!
+        </mat-card-title>
+        <textarea 
                   class="poll-input"
                   style="resize: none"
                   style="overflow: hidden"
                   [value]="question.questionContent">
+                    Wyniki pytania
       </textarea>
-      </mat-card-title>
-
-      <div *ngIf="question.type === 'ABCSingle' || question.type === 'ABCMultiple'">
-        <div class="poll-type direction-column">
-          <mat-card-title> Odpowiedź:</mat-card-title>
-          <div *ngFor="let answer of question.answers; let first =first;">
-            <input MatInput class="poll-input input-open" [value]="answer.answerText">
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="question.type === 'SCALE'">
-        <div class="poll-type direction-column">
-          <mat-card-title> Zakres skali wynosi od 0 do:</mat-card-title>
-          <div *ngFor="let answer of question.answers; let first =first;">
-            <input MatInput class="poll-input input-open" [value]="answer.answerText">
-          </div>
-        </div>
-      </div>
-
-      <button (click)="deleteQuestion(question.questionId)" class="btn-add-question"> USUŃ</button>
+      <button (click)="" class="btn-left"> Następne</button>
+      <button (click)="" class="btn-right"> Poprzednie</button>
     </mat-card-content>
   </mat-card>
 </div>
