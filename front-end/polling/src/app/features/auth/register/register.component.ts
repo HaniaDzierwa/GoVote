@@ -56,7 +56,6 @@ export class RegisterComponent implements OnInit {
       .registerUser(resgisterBody)
       .pipe(
         catchError((error: HttpErrorResponse) => {
-          console.log(error);
           this._matSnackBar.open('Napotkano problem przy rejestracji', 'OK');
           return of(undefined);
         }),

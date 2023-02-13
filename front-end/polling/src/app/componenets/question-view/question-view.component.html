@@ -1,18 +1,16 @@
-<div *ngFor="let question of questions ">
-  <hr>
+<div *ngFor="let question of questions">
+  <hr />
   <mat-card class="questions">
     <mat-card-content>
-      <mat-card-title> Nazwa pytania tutaj!!!
-        </mat-card-title>
-        <textarea 
-                  class="poll-input"
-                  style="resize: none"
-                  style="overflow: hidden"
-                  [value]="question.questionContent">
+      <mat-card-title> Nazwa pytania tutaj!!! </mat-card-title>
+      <textarea
+        class="poll-input"
+        style="resize: none"
+        style="overflow: hidden"
+        [value]="question.questionContent"
+      >
                     Wyniki pytania
       </textarea>
-      <button (click)="" class="btn-left"> Następne</button>
-      <button (click)="" class="btn-right"> Poprzednie</button>
     </mat-card-content>
   </mat-card>
 </div>

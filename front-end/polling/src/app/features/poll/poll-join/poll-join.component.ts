@@ -61,7 +61,6 @@ export class PollJoinComponent implements OnInit {
         takeUntil(this._destroy$)
       )
       .subscribe((result) => {
-        console.log(result);
         result!.ballotId = poll.ballotId;
 
         const dialogRef = this.dialog.open(QuestionDialogComponent, {

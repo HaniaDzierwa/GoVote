@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 import { PollWithQuestions } from '../model/PollWithQuestions';
 import { AnswerToSend } from '../model/Answer-to-send';
 import { CompleteBallot } from '../model/completeBallot';
+import { AnswerWithQuestion } from '../model/answer-with-question';
 
 @Injectable({
   providedIn: 'root',
@@ -117,8 +118,6 @@ export class PollService {
       Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
     };
 
-    // console.log(this._header.get('Authorization'));
-
     return this._httpService.get<PollModel[]>(urlGetAllPolls, {
       headers: headers,
     });
@@ -155,8 +154,6 @@ export class PollService {
       Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
     };
 
-    console.log(localStorage.getItem(environment.tokken));
-
     return this._httpService.post<any>(
       urlAddNewUserAnswerToBallot,
       answersToSend,
@@ -165,5 +162,17 @@ export class PollService {
         observe: 'response',
       }
     );
+  }
+
+  getCompletedBallot(pollId: number): Observable<AnswerWithQuestion[]> {
+    const urlGetPollById = `api/v1/ballot/completedBallot/${pollId}`;
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
+    };
+
+    return this._httpService.get<AnswerWithQuestion[]>(urlGetPollById, {
+      headers: headers,
+    });
   }
 }

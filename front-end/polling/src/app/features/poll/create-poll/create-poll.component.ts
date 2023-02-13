@@ -43,8 +43,6 @@ export class CreatePollComponent implements OnInit {
       .createPoll(this._createPollRequest)
       .subscribe((respondBody) => {
         if (respondBody) {
-          console.log(respondBody);
-          //this._pollService.publishPoll().subscribe((res) => {console.log(res)});
           this.onClickRedirect();
         }
       });
@@ -52,12 +50,8 @@ export class CreatePollComponent implements OnInit {
 
   onClickRedirect() {
     this._router.navigate(['/poll-view']).then(
-      (nav) => {
-        console.log(nav); // true if navigation is successful
-      },
-      (err) => {
-        console.log(err); // when there's an error
-      }
+      (nav) => {},
+      (err) => {}
     );
   }
 
@@ -72,7 +66,6 @@ export class CreatePollComponent implements OnInit {
         takeUntil(this._destroy$)
       )
       .subscribe((result) => {
-        console.log(result);
         this.user = result;
         this.isReady = true;
       });

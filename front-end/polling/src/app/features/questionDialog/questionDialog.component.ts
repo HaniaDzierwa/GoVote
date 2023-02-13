@@ -46,7 +46,6 @@ export class QuestionDialogComponent {
   }
 
   onAccept(): void {
-    console.log(this.pollWithQuestions.ballotId!);
     const arrayAnswer: AnswerToSend[] = [];
 
     for (let control of this.questions.controls) {
@@ -104,7 +103,7 @@ export class QuestionDialogComponent {
         takeUntil(this._destroy$)
       )
       .subscribe((result) => {
-        console.log(result);
+        this.dialogRef.close();
       });
   }
 

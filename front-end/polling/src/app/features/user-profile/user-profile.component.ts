@@ -27,7 +27,6 @@ export class UserProfileComponent implements OnInit {
         takeUntil(this._destroy$)
       )
       .subscribe((result) => {
-        console.log(result);
         this.user = result;
         this.isReady = true;
       });

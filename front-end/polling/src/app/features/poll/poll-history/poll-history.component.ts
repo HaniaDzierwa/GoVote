@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { catchError, of, filter, takeUntil, Subject } from 'rxjs';
 import { PollModel } from 'src/app/model/poll-model';
 import { PollService } from 'src/app/services/poll.service';
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-poll-join-history',
@@ -12,6 +15,8 @@ import { PollService } from 'src/app/services/poll.service';
 export class PollHistoryComponent implements OnInit {
   private readonly _destroy$: Subject<boolean> = new Subject<boolean>();
   private _polls: PollModel[] = [];
+  public chart: any;
+  public ready: boolean = false;
 
   public get polls(): PollModel[] {
     return this._polls;
@@ -37,6 +42,7 @@ export class PollHistoryComponent implements OnInit {
       )
       .subscribe((result) => {
         this._polls.push(...result!);
+        this.ready = true;
       });
   }
 }

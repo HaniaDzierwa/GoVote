@@ -1,4 +1,4 @@
-<mat-accordion multi>
+<mat-accordion>
   <div class="card-polls">
     <mat-expansion-panel *ngFor="let poll of polls" class="poll">
       <mat-expansion-panel-header>
@@ -8,7 +8,9 @@
           {{ poll.ballotDescription }}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>This is the primary content of the panel.</p>
+      <ng-template matExpansionPanelContent>
+        <app-chart [poll]="poll"></app-chart>
+      </ng-template>
     </mat-expansion-panel>
   </div>
 </mat-accordion>

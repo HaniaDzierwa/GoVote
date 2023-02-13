@@ -1,0 +1,15 @@
+.question-text{
+    display: flex;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.answer{
+    display: flex;
+}
+
+.list-of-answers{
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+}
