@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\front-end",
+    "\\front-end\\polling",
+    "\\front-end\\polling\\src",
+    "\\front-end\\polling\\src\\app",
+    "\\front-end\\polling\\src\\app\\componenets",
+    "\\front-end\\polling\\src\\app\\componenets\\add-question",
+    "\\front-end\\polling\\src\\app\\componenets\\question-view",
+    "\\src"
+  ],
+  "SelectedNode": "\\front-end\\polling\\src\\app\\componenets\\add-question\\add-question.component.html",
+  "PreviewInSolutionExplorer": false
+}

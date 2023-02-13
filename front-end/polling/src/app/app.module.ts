@@ -19,9 +19,11 @@ import { DialogComponent } from './componenets/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PollViewModule } from './features/poll/poll-view/poll-view.module';
 import { FilterPipe } from './utils/filter-pipe';
+import { ForgetPasswordComponent } from './password/forget-password/forget-password.component';
+import { RecoverPasswordComponent } from './password/recover-password/recover-password.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, DialogComponent],
+  declarations: [AppComponent, NavBarComponent, DialogComponent, ForgetPasswordComponent, RecoverPasswordComponent],
   imports: [
     MaterialDesignModule,
     BrowserModule,

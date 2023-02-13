@@ -10,6 +10,8 @@ import { RegisterComponent } from './features/auth/register/register.component';
 import { PollViewComponent } from './features/poll/poll-view/poll-view.component';
 import { SecurityGuardian } from './features/auth/security.guard';
 import { NavBarComponent } from './componenets/nav-bar/nav-bar.component';
+import { ForgetPasswordComponent } from './password/forget-password/forget-password.component';
+import { RecoverPasswordComponent } from './password/recover-password/recover-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -40,7 +42,18 @@ const routes: Routes = [
     component: PollViewComponent,
     canActivate: [SecurityGuardian],
   },
-  { path: '**', component: NotFoundPageComponent },
+  {
+    path: 'password', children: [
+      {
+        path: 'forget-password', component: ForgetPasswordComponent,
+      }
+    ]
+  },
+  {
+    path: 'recover-password', component: RecoverPasswordComponent
+  },
+  { path: '**', component: NotFoundPageComponent }
+
 ];
 
 @NgModule({
