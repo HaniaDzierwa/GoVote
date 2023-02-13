@@ -42,17 +42,18 @@ const routes: Routes = [
     component: PollViewComponent,
     canActivate: [SecurityGuardian],
   },
-  { path: '**', component: NotFoundPageComponent },
   {
     path: 'password', children: [
       {
         path: 'forget-password', component: ForgetPasswordComponent,
-      },
-      {
-        path: 'recover-password', component: RecoverPasswordComponent
       }
     ]
-  }
+  },
+  {
+    path: 'recover-password', component: RecoverPasswordComponent
+  },
+  { path: '**', component: NotFoundPageComponent }
+
 ];
 
 @NgModule({

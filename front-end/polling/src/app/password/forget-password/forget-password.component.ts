@@ -24,6 +24,8 @@ export class ForgetPasswordComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.recoverForm.controls['email'].setValue('ola.lewandowska12@gmail.com')
+    this.recoverPassword()
   }
 
   public recoverPassword(): void {
