@@ -9,8 +9,8 @@
     "\\front-end\\polling\\src\\app\\features\\auth",
     "\\front-end\\polling\\src\\app\\features\\auth\\login",
     "\\front-end\\polling\\src\\app\\features\\auth\\register",
-    "\\src"
+    "\\front-end\\polling\\src\\app\\features\\side-nav"
   ],
-  "SelectedNode": "\\front-end\\polling\\src\\app\\features\\auth\\register\\register.component.spec.ts",
+  "SelectedNode": "\\front-end\\polling\\src\\app\\features\\side-nav\\side-nav.component.html",
   "PreviewInSolutionExplorer": false
 }
