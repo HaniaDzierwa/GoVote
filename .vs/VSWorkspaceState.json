@@ -5,11 +5,12 @@
     "\\front-end\\polling",
     "\\front-end\\polling\\src",
     "\\front-end\\polling\\src\\app",
-    "\\front-end\\polling\\src\\app\\componenets",
-    "\\front-end\\polling\\src\\app\\componenets\\add-question",
-    "\\front-end\\polling\\src\\app\\componenets\\question-view",
+    "\\front-end\\polling\\src\\app\\features",
+    "\\front-end\\polling\\src\\app\\features\\auth",
+    "\\front-end\\polling\\src\\app\\features\\auth\\login",
+    "\\front-end\\polling\\src\\app\\features\\auth\\register",
     "\\src"
   ],
-  "SelectedNode": "\\front-end\\polling\\src\\app\\componenets\\add-question\\add-question.component.html",
+  "SelectedNode": "\\front-end\\polling\\src\\app\\features\\auth\\register\\register.component.spec.ts",
   "PreviewInSolutionExplorer": false
 }

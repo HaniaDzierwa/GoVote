@@ -11,7 +11,7 @@ export class UserService {
   constructor(private readonly _http: HttpClient) {}
 
   getUser(): Observable<UserProfile> {
-    const urlGetUserProfile = 'api/v1/user/getUser';
+    const urlGetUserProfile = 'api/v1/user/getUserId';
     const headers = {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${localStorage.getItem(environment.tokken)}`,
