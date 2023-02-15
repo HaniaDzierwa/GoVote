@@ -9,7 +9,7 @@ export class LoginService {
   constructor(private readonly _http: HttpClient) {}
 
   loginAttempt(login: Login) {
-    const loginUrl = 'api/v1/public/login';
+    const loginUrl = '/api/v1/public/login';
     return this._http.post<any>(loginUrl, login);
   }
 }

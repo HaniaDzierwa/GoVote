@@ -12,20 +12,18 @@ import { PasswordHttpService } from 'src/app/test/services/password.http.service
 })
 export class ForgetPasswordComponent implements OnInit {
 
-  private recoverForm: FormGroup
+  public recoverForm: FormGroup
 
   constructor(private route: ActivatedRoute, private passwordHttpService: PasswordHttpService,
     private dialogService: DialogService, private fb: FormBuilder, private router: Router) {
 
       this.recoverForm = this.fb.group({
-        'email': Validators.compose([Validators.required, Validators.email])
+        'email': ['',  Validators.compose([Validators.required, Validators.email])]
       })
 
     }
 
   ngOnInit(): void {
-    this.recoverForm.controls['email'].setValue('ola.lewandowska12@gmail.com')
-    this.recoverPassword()
   }
 
   public recoverPassword(): void {
@@ -37,6 +35,7 @@ export class ForgetPasswordComponent implements OnInit {
     this.dialogService.openLoader(new DialogMessage('Zmiana hasła', 'Trwa wysyłka maila z wiadomością do zmiany hasła'))
     this.passwordHttpService.requestPasswordRecovery(this.recoverForm.controls['email'].value).then(resp => {
       this.dialogService.dialogReference?.close()
+      console.log('resp ...', resp)
 
       this.dialogService.openDialog(new DialogMessage('Sukces', 'Email został wysłany na adres email: ' + this.recoverForm.controls['email'].value),
         () => {
@@ -45,6 +44,8 @@ export class ForgetPasswordComponent implements OnInit {
     
     }).catch(err => {
       this.dialogService.dialogReference?.close()
+
+      console.log('error', err)
     })
   }
 }

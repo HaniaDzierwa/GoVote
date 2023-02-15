@@ -9,16 +9,16 @@ export class PasswordHttpService {
 
   constructor(private http: HttpClientService, private general: GeneralParamsService) { }
 
-  public requestPasswordRecovery(email: string): Promise<any> {0
+  public requestPasswordRecovery(email: string): Promise<any> {
     return this.http.request('post', this.general.getUrl(`/requestPasswordRecovery`, ServicesType.BASE_API), {
-        email: email
-    })!.toPromise();
+        email: email,
+    }, { responseType: 'text' })!.toPromise();
   }
 
-  public recoverPassword(activationCode: string, newPassword: string): Promise<any> {0
+  public recoverPassword(activationCode: string, newPassword: string): Promise<any> {
     return this.http.request('post', this.general.getUrl(`/recoverPassword`, ServicesType.BASE_API), {
         activationCode: activationCode,
         newPassword: newPassword
-    })!.toPromise();
+    }, {responseType: 'text'})!.toPromise();
   }
 }

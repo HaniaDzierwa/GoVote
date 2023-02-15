@@ -14,7 +14,7 @@ export class RecoverPasswordComponent implements OnInit {
 
   public activationCode: string = ""
 
-  private changePasswordForm: FormGroup
+  public changePasswordForm: FormGroup
 
   constructor(private router: Router, private route: ActivatedRoute, private passwordHttpService: PasswordHttpService,
     private dialogService: DialogService, private fb: FormBuilder) { 
@@ -23,8 +23,8 @@ export class RecoverPasswordComponent implements OnInit {
     });
 
     this.changePasswordForm = this.fb.group({
-      "password": Validators.compose([Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
-      "reenterPassword": Validators.compose([Validators.required, this.comparePasswords])
+      "password": ['', Validators.compose([Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])],
+      "reenterPassword": ['', Validators.compose([Validators.required, this.comparePasswords])]
     })
   }
 
@@ -61,15 +61,5 @@ export class RecoverPasswordComponent implements OnInit {
       passwordsDoNotMatch: true
     }
   }
-
-  /*
-  
-  comparisonValidator(g: FormGroup) {
-      if (g.get('myControl1').value > g.get('myControl2'.value)) {
-        g.controls['myControl1'].setErrors({ 'value2GreaterThanValue1': true });
-        return;
-      }
-  
-  */
 
 }

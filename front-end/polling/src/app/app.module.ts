@@ -23,7 +23,7 @@ import { ForgetPasswordComponent } from './password/forget-password/forget-passw
 import { RecoverPasswordComponent } from './password/recover-password/recover-password.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, DialogComponent, ForgetPasswordComponent, RecoverPasswordComponent],
+  declarations: [AppComponent, NavBarComponent, DialogComponent],
   imports: [
     MaterialDesignModule,
     BrowserModule,
