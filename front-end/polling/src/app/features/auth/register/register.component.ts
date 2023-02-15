@@ -54,19 +54,15 @@ export class RegisterComponent implements OnInit {
     };
     this._registerService
       .registerUser(resgisterBody)
-      .pipe(
-        catchError((error: HttpErrorResponse) => {
-          this._matSnackBar.open('Napotkano problem przy rejestracji', 'OK');
-          return of(undefined);
-        }),
-        filter((res) => Boolean(res)),
-        takeUntil(this._destroy$)
-      )
-
-      .subscribe((res) => {
+      .then(() => {
         this._matSnackBar.open('Rejestracja się powiodła', 'OK');
         this.registerForm.reset();
-      });
+
+        this._router.navigate(['login'])
+      })
+    .catch(err => {
+      this._matSnackBar.open('Napotkano problem przy rejestracji', 'OK');
+    })
   }
 
   isFormValid(): boolean {

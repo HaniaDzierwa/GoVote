@@ -32,6 +32,6 @@ export class RegisterService {
     const registerUrl = '/api/v1/public/register';
     return this._http.post<Register>(registerUrl, register, {
       headers: this._header,
-    });
+    }).toPromise();
   }
 }
