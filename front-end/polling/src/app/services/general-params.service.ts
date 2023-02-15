@@ -29,7 +29,7 @@ export class GeneralParamsService {
 
   public static apiAddress() {
     if (!location.origin.includes('localhost')) {
-      return 'https://ballot-polsl.herokuapp.com/api'; // 'http://localhost:8080/api'; //
+      return 'https://ballot-polsl.herokuapp.com'; // 'http://localhost:8080/api'; //
     }
     return window.location.origin;
   }
