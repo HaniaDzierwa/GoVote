@@ -33,7 +33,16 @@
           </div>
         </div>
       </mat-card-content>
+
       <div class="buttons">
+        <button style="font-size: 16px"
+          mat-raised-button
+          (click)="forgetPassword()"
+        >
+        Zapomniałem/am hasła
+        </button>
+      </div>
+      <div class="buttons" style="margin-top: 48px">
         <button
           mat-raised-button
           (click)="onSubmit()"
